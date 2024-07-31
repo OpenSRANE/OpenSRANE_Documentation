@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modeling Steps &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Modeling commands" href="ModelingCommands.html" />
+    <link rel="prev" title="System of units" href="Systemofunits.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Systemofunits.html">System of units</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Modeling Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linked-modeling-steps">Linked Modeling Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-existing-subpackages">Other existing Subpackages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ModelingCommands.html">Modeling commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Verifications.html">Verifications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Modeling Steps</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/user/ModelingStepsDiagram.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modeling-steps">
+<span id="mdlstps"></span><h1>Modeling Steps<a class="headerlink" href="#modeling-steps" title="Link to this heading"></a></h1>
+<p>The steps of creating a common model in <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE">OpenSRANE</a> has been shown in the following figure. There is an emphasize on the <strong>common</strong> model because when user understood the way that <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE">OpenSRANE</a> creates the models, then without following the below steps, user can create his desired model in different way!</p>
+<figure class="align-center" id="id1">
+<span id="modelstpfig"></span><img alt="../_images/ModellingSteps.png" src="../_images/ModellingSteps.png" />
+<figcaption>
+<p><span class="caption-text">Modeling Steps</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>for a complete modelling user should pass the steps shown above to finish the model. For each step user can uses Python coding commands and features (loops commands, dictionaries, lists …) to make modeling more convenient and it depends on the user. But before start of the analysis, the required objects shown in the following path should be defined.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To <strong>know and use</strong> the commands in a programming language in order to develop an application (<strong>coding</strong>) is one thing. To <strong>program</strong> in a language is something different. <strong>Programming</strong> involves creativity and thinking at a higher level, thinking in terms of problem solving, what are the abstractions and algorithms that can be employed to solve the problem. Programmers finally use code to express their thoughts of how to solve the problem. All programmers are coders. Most coders are <strong>NOT</strong> programmers. To utilize the OpenSees interpreters effectively <strong>YOU WANT TO BECOME A PROGRAMMER</strong>.</p>
+<p>This warning has been hired from <a class="reference external" href="https://opensees.github.io/OpenSeesDocumentation/user/interpreters.html">OpenSees Documentation</a> page. <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE">OpenSRANE</a> users also should pay attention to this warning before using <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE">OpenSRANE</a>.</p>
+</div>
+<section id="linked-modeling-steps">
+<h2>Linked Modeling Steps<a class="headerlink" href="#linked-modeling-steps" title="Link to this heading"></a></h2>
+<p>In the following, the steps that showed in the <a class="reference internal" href="#modelstpfig"><span class="std std-ref">Modeling Steps</span></a> will be explain more and the related document page is linked for more convenient users access.</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Start</strong>:</dt><dd><p>To start modeling it is highly recommended that using <a class="reference internal" href="ModelingCommands/MiscCommands/wipe.html#wipe"><span class="std std-ref">wipe</span></a> command clear all defined objects that may exist in the memory.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Recorders</strong>:</dt><dd><p>To save the analysis results it is important that user using one of the existing recorders methods in <a class="reference internal" href="ModelingCommands/Recorders-spk.html#recorders"><span class="std std-ref">Recorders</span></a>, define the recorder/s objects and in this way the way of recording results will be specif y for the software.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Hazard</strong>:</dt><dd><p>Usign <a class="reference internal" href="ModelingCommands/hazard-spk.html#hazspk"><span class="std std-ref">Hazard</span></a> subpackage, user should define hazard curve for the software. Currently earthquake command exist and user could define seismic hazard curve for software.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Date And Time</strong>:</dt><dd><p>User should also define the time and date model for software. Usign <a class="reference internal" href="ModelingCommands/DateAndTime-spk.html#datetimespk"><span class="std std-ref">DateAndTime</span></a> subpackage, user could define Date and time model for the software.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define WindData</strong>:</dt><dd><p>To define site wind date, Usign <a class="reference internal" href="ModelingCommands/WindData-spk.html#winddata"><span class="std std-ref">WindData</span></a> subpackage, user could define Wind model for the software.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Site data</strong>:</dt><dd><p>To define site properties, the <a class="reference internal" href="ModelingCommands/Sites-spk.html#sitesspk"><span class="std std-ref">Sites</span></a> subpackage has been provided.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Substance/s</strong>:</dt><dd><p>The material that fill plant units should be define using <a class="reference internal" href="ModelingCommands/Substance-spk.html#substance"><span class="std std-ref">Substance</span></a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Fragilities</strong>:</dt><dd><p>Using <a class="reference internal" href="ModelingCommands/Fragilities-SPK/Fragility.html#fragility"><span class="std std-ref">Fragility</span></a> command, user could define all plant units possible fragilities.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Probits</strong>:</dt><dd><p>To define vulnerability of plant units and also NodesGroup objects, Using <a class="reference internal" href="ModelingCommands/Fragilities-SPK/Probit.html#probit"><span class="std std-ref">Probit</span></a> command, user could define the required probits.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define OutFlow models</strong>:</dt><dd><p>Materials outflow from damaged plant units should be model using existing models or commands in the <a class="reference internal" href="ModelingCommands/OutFlowModel-spk.html#outflowmodel"><span class="std std-ref">OutFlowModel</span></a> subpackage.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Dispersion and spread models</strong>:</dt><dd><p>To define the models related to dispersion and spread of outflowed materials, the <a class="reference internal" href="ModelingCommands/DispersionSpreadModels-spk.html#dispersionspreadmodels"><span class="std std-ref">DispersionSpreadModels</span></a> subpackage has been provided.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Physical effect models</strong>:</dt><dd><p>The <a class="reference internal" href="ModelingCommands/PhysicalEffect-spk.html#physicaleffect"><span class="std std-ref">PhysicalEffect</span></a> subpackge is responsible for defining physical effect models and using this subpackage user can define various physical effect models.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Connectors</strong>:</dt><dd><p>The defined models like outflow models, DispersionSpread models and PhysicalEffect models should properly connect to related plant units. But it is not necessary to define them directly. Using <a class="reference internal" href="ModelingCommands/Connectors-spk.html#connectors"><span class="std std-ref">Connectors</span></a> subpackage user can connect mentioned models to each other with desired occurrence probability.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Safety OBjects</strong>:</dt><dd><p>Safety Objects can be define using commands exist in <a class="reference internal" href="ModelingCommands/Safety-spk.html#safetyspk"><span class="std std-ref">Safety</span></a> subpackage.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Define Plant Units</strong>:</dt><dd><p>The final part of modeling is defining plant units using <a class="reference internal" href="ModelingCommands/PlantUnits-spk.html#plantunits"><span class="std std-ref">PlantUnits</span></a> subpackage. Each command in this subpackage is related to a type of Plant unit.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Analysis</strong>:</dt><dd><p>By defining the plant units, the model is now ready for analysis. In <a class="reference internal" href="ModelingCommands/Analyze-spk.html#analyze"><span class="std std-ref">Analyze</span></a> subpackage there are various methods to run the analysis.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="other-existing-subpackages">
+<h2>Other existing Subpackages<a class="headerlink" href="#other-existing-subpackages" title="Link to this heading"></a></h2>
+<p>There are some packages that using of them is not necessary, however they maybe become useful for completing the analysis. In the following they are explained and linked to their documentation page.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>NodesGroup (Vulnerable Objects)</strong>:</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul>
+<li><p><strong>Plotting tools</strong>:</p>
+<blockquote>
+<div><p>It is really convenient to check the model and results visually. Using <a class="reference internal" href="Plot.html#plot"><span class="std std-ref">Plot</span></a> subpackage, user have access to some provided commands to plot various defined objects.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Access to Objects</strong>:</p>
+<blockquote>
+<div><p>By finishing the analysis, it is important to have access to object to check their results and condition. To way of access to defined objects or elements is described in <a class="reference internal" href="PostProcessing/Access2Objs.html#acs2obj"><span class="std std-ref">This Page</span></a>.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Objects or Elements data</strong>:</p>
+<blockquote>
+<div><p>By referring or accessing to an element or object, various data can be read from them. The data that can be read from an object is described <a class="reference internal" href="PostProcessing/SubpackagesGlobParameters.html#subglobpara"><span class="std std-ref">This Page</span></a>. For each object there are various data that can be read.</p>
+</div></blockquote>
+</li>
+<li><p><strong>PostProcess Subpackage</strong>:</p>
+<blockquote>
+<div><p>There is also a <a class="reference internal" href="PostProcessing/PostProcess_SPK.html#postprocessspk"><span class="std std-ref">subpackage</span></a> that is provided for post processing. <strong>But there is no mandatory to use this subpackage</strong>. To use this subpackage user should first load data and then call the existing desired results. Also, some auto plots is available. All required knowledge to use it, is described in <a class="reference internal" href="PostProcessing/PostProcess_SPK.html#postprocessspk"><span class="std std-ref">This page</span></a>.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>figure/s by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

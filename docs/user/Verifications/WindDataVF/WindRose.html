@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WindRose Module Verification &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Fragilities Verification" href="../FragilitiesVF.html" />
+    <link rel="prev" title="WindData Verification" href="../WindDataVF.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingCommands.html">Modeling commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../Verifications.html">Verifications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hazardVF.html">Hazard Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateAndTimeVF.html">DateAndTime Verification</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../WindDataVF.html">WindData Verification</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">WindRose Module Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../FragilitiesVF.html">Fragilities Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OutflowVF.html">Outflow Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConnectorsVF.html">Connectors Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DispersionSpreadModelsVF.html">DispersionSpreadModels Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicalEffectVF.html">PhysicalEffect Verification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../Verifications.html">Verifications</a></li>
+          <li class="breadcrumb-item"><a href="../WindDataVF.html">WindData Verification</a></li>
+      <li class="breadcrumb-item active">WindRose Module Verification</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/user/Verifications/WindDataVF/WindRose.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="windrose-module-verification">
+<span id="windrosevf"></span><h1>WindRose Module Verification<a class="headerlink" href="#windrose-module-verification" title="Link to this heading"></a></h1>
+<p>The question is that <strong>Does the GetRandomWindِSample method of WindRose object correctly samples the Defined wind Data?</strong>. To find the answer of this question, first a WindRose object will be created. Then numerous samples will be created and record. Finally the distribution of recorded samples will be check by defined WindRose data.</p>
+<p>The below codes can be downloaded from <a class="reference download internal" download="" href="../../../_downloads/b4a38db235ffdab675a0cf24dad9e699/WindRose.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a> in Jupyter Notebook format.</p>
+<div class="admonition-verification admonition">
+<p class="admonition-title">Verification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import the software</span>
+<span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
+
+
+<span class="c1">#Clear Memory from probable created objects</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+
+<span class="c1">#Define Date time object</span>
+<span class="n">DTobj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">DateAndTime</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#Defind WindRose Object</span>
+<span class="n">windobj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">WindData</span><span class="o">.</span><span class="n">WindRose</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">windobj</span><span class="o">.</span><span class="n">WindDayClassList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">]</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">WindNightClassList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">]</span>
+
+<span class="n">windobj</span><span class="o">.</span><span class="n">AlphaCOEFlist</span><span class="o">=</span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.25</span><span class="p">]</span>
+
+<span class="n">windobj</span><span class="o">.</span><span class="n">DayWindSpeedList</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">NightWindSpeedList</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
+
+<span class="c1">#You don&#39;t need to define calmn Condition and program will understand it automatically</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">DayWindFreqMatrix</span><span class="o">=</span><span class="p">[</span> <span class="p">[</span><span class="mf">0.446</span><span class="p">,</span><span class="mf">0.372</span><span class="p">,</span><span class="mf">0.355</span><span class="p">,</span><span class="mf">0.109</span><span class="p">,</span><span class="mf">0.017</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.44</span><span class="p">,</span><span class="mf">0.938</span><span class="p">,</span><span class="mf">1.55</span><span class="p">,</span><span class="mf">0.755</span><span class="p">,</span><span class="mf">0.097</span><span class="p">,</span><span class="mf">0.029</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.898</span><span class="p">,</span><span class="mf">1.321</span><span class="p">,</span><span class="mf">3.06</span><span class="p">,</span><span class="mf">1.402</span><span class="p">,</span><span class="mf">0.767</span><span class="p">,</span><span class="mf">0.892</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.875</span><span class="p">,</span><span class="mf">1.241</span><span class="p">,</span><span class="mf">2.626</span><span class="p">,</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">0.892</span><span class="p">,</span><span class="mf">0.646</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.801</span><span class="p">,</span><span class="mf">0.927</span><span class="p">,</span><span class="mf">1.63</span><span class="p">,</span><span class="mf">0.658</span><span class="p">,</span><span class="mf">0.355</span><span class="p">,</span><span class="mf">0.097</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.87</span><span class="p">,</span><span class="mf">1.121</span><span class="p">,</span><span class="mf">0.984</span><span class="p">,</span><span class="mf">0.309</span><span class="p">,</span><span class="mf">0.023</span><span class="p">,</span><span class="mf">0.029</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.778</span><span class="p">,</span><span class="mf">0.801</span><span class="p">,</span><span class="mf">0.91</span><span class="p">,</span><span class="mf">0.315</span><span class="p">,</span><span class="mf">0.029</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.652</span><span class="p">,</span><span class="mf">0.875</span><span class="p">,</span><span class="mf">1.35</span><span class="p">,</span><span class="mf">0.498</span><span class="p">,</span><span class="mf">0.086</span><span class="p">,</span><span class="mf">0.023</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.566</span><span class="p">,</span><span class="mf">0.887</span><span class="p">,</span><span class="mf">1.659</span><span class="p">,</span><span class="mf">0.709</span><span class="p">,</span><span class="mf">0.149</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.583</span><span class="p">,</span><span class="mf">0.807</span><span class="p">,</span><span class="mf">2.128</span><span class="p">,</span><span class="mf">2.998</span><span class="p">,</span><span class="mf">1.041</span><span class="p">,</span><span class="mf">0.137</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.898</span><span class="p">,</span><span class="mf">1.093</span><span class="p">,</span><span class="mf">2.408</span><span class="p">,</span><span class="mf">2.059</span><span class="p">,</span><span class="mf">1.327</span><span class="p">,</span><span class="mf">0.154</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">1.985</span><span class="p">,</span><span class="mf">2.088</span><span class="p">,</span><span class="mf">2.488</span><span class="p">,</span><span class="mf">1.098</span><span class="p">,</span><span class="mf">0.332</span><span class="p">,</span><span class="mf">0.069</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">4.067</span><span class="p">,</span><span class="mf">3.123</span><span class="p">,</span><span class="mf">1.442</span><span class="p">,</span><span class="mf">0.292</span><span class="p">,</span><span class="mf">0.063</span><span class="p">,</span><span class="mf">0.011</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">3.93</span><span class="p">,</span><span class="mf">5.372</span><span class="p">,</span><span class="mf">3.85</span><span class="p">,</span><span class="mf">1.201</span><span class="p">,</span><span class="mf">0.349</span><span class="p">,</span><span class="mf">0.057</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">1.71</span><span class="p">,</span><span class="mf">1.619</span><span class="p">,</span><span class="mf">2.38</span><span class="p">,</span><span class="mf">0.767</span><span class="p">,</span><span class="mf">0.109</span><span class="p">,</span><span class="mf">0.006</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.698</span><span class="p">,</span><span class="mf">0.469</span><span class="p">,</span><span class="mf">0.383</span><span class="p">,</span><span class="mf">0.154</span><span class="p">,</span><span class="mf">0.011</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="p">]</span>
+
+
+<span class="n">windobj</span><span class="o">.</span><span class="n">NightWindFreqMatrix</span><span class="o">=</span><span class="n">windobj</span><span class="o">.</span><span class="n">DayWindFreqMatrix</span>
+
+
+<span class="c1">#---------------- Verification For Day---------------------------------</span>
+    <span class="n">N</span><span class="o">=</span><span class="mi">100000</span> <span class="c1">#Number of Sampling</span>
+
+    <span class="c1">#Define Variables to store data</span>
+<span class="n">windDir</span><span class="o">=</span><span class="nb">set</span><span class="p">()</span>
+<span class="n">WindDirData</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="n">WindSpeedFreq</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">)]</span>
+
+<span class="c1">#Sampling DayTime</span>
+<span class="n">DTobj</span><span class="o">.</span><span class="n">SampleisDay</span><span class="p">()</span>
+<span class="n">WindDirData</span><span class="p">[</span><span class="s1">&#39;isCalmn&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+
+    <span class="n">rslt</span><span class="o">=</span><span class="n">windobj</span><span class="o">.</span><span class="n">GetRandomWindِSample</span><span class="p">();</span> <span class="c1">#Create a sample</span>
+
+    <span class="c1">#Get wind Direction</span>
+    <span class="k">if</span> <span class="n">rslt</span><span class="p">[</span><span class="s1">&#39;isCalmn&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span> <span class="n">windDir</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">rslt</span><span class="p">[</span><span class="s1">&#39;WindDirection&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">windDir</span><span class="p">)</span><span class="o">!=</span><span class="nb">len</span><span class="p">(</span><span class="n">WindDirData</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">rslt</span><span class="p">[</span><span class="s1">&#39;isCalmn&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+        <span class="n">wdir</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">windDir</span><span class="p">)</span>
+        <span class="n">add</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">wdir</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WindDirData</span><span class="o">.</span><span class="n">keys</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">WindDirData</span><span class="p">[</span><span class="n">add</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+
+    <span class="k">if</span> <span class="n">rslt</span><span class="p">[</span><span class="s1">&#39;isCalmn&#39;</span><span class="p">]</span><span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">WindDirData</span><span class="p">[</span><span class="s1">&#39;isCalmn&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">WindDirData</span><span class="p">[</span><span class="s1">&#39;isCalmn&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">WindDirData</span><span class="p">[</span><span class="n">rslt</span><span class="p">[</span><span class="s1">&#39;WindDirection&#39;</span><span class="p">]]</span> <span class="o">=</span><span class="n">WindDirData</span><span class="p">[</span><span class="n">rslt</span><span class="p">[</span><span class="s1">&#39;WindDirection&#39;</span><span class="p">]]</span><span class="o">+</span><span class="mi">1</span>
+
+
+    <span class="c1">#Calculating Wind Speed Frequency</span>
+    <span class="k">if</span> <span class="n">rslt</span><span class="p">[</span><span class="s1">&#39;isCalmn&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+
+        <span class="n">WindRow</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">windobj</span><span class="o">.</span><span class="n">DayTheta</span><span class="p">))</span> <span class="k">if</span> <span class="n">windobj</span><span class="o">.</span><span class="n">DayTheta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">rslt</span><span class="p">[</span><span class="s1">&#39;WindDirection&#39;</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">WindCol</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">windobj</span><span class="o">.</span><span class="n">DayWindSpeedList</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">windobj</span><span class="o">.</span><span class="n">DayWindSpeedList</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">rslt</span><span class="p">[</span><span class="s1">&#39;WindSpeed&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">windobj</span><span class="o">.</span><span class="n">DayWindSpeedList</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">WindSpeedFreq</span><span class="p">[</span><span class="n">WindRow</span><span class="p">][</span><span class="n">WindCol</span><span class="p">]</span><span class="o">=</span><span class="n">WindSpeedFreq</span><span class="p">[</span><span class="n">WindRow</span><span class="p">][</span><span class="n">WindCol</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1">#Normalize Wind Matrix</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">WindSpeedFreq</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">WindSpeedFreq</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+        <span class="n">WindSpeedFreq</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">WindSpeedFreq</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="mi">100</span>
+
+<span class="c1">#print(&#39;Monte Carlo Sampling Results: \n&#39;,  WindSpeedFreq)</span>
+<span class="c1">#print(&#39;\n Defined Values: \n&#39;,windobj.DayWindFreqMatrix)</span>
+<span class="c1">#print()</span>
+
+<span class="c1">#Normalizing Wind Direction Data</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">WindDirData</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">WindDirData</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">=</span><span class="n">WindDirData</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="mi">100</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Comparision of Direction Sampling Ratio and User Defined Values:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">userdata</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">windobj</span><span class="o">.</span><span class="n">DayTheta</span><span class="p">,</span><span class="n">windobj</span><span class="o">.</span><span class="n">DayDirectProbability</span><span class="p">));</span>
+<span class="k">for</span> <span class="n">keys</span> <span class="ow">in</span> <span class="n">userdata</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;for direction </span><span class="si">{</span><span class="n">keys</span><span class="si">}</span><span class="s1"> average of </span><span class="se">\t</span><span class="s1"> sampled values: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">WindDirData</span><span class="p">[</span><span class="n">keys</span><span class="p">],</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1"> </span><span class="se">\t</span><span class="s1"> and UserDefined value: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">userdata</span><span class="p">[</span><span class="n">keys</span><span class="p">],</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;and Calm condition is= </span><span class="si">{</span><span class="n">WindDirData</span><span class="p">[</span><span class="s1">&#39;isCalmn&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result of above code has been printed in the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Comparision</span> <span class="n">of</span> <span class="n">Direction</span> <span class="n">Sampling</span> <span class="n">Ratio</span> <span class="ow">and</span> <span class="n">User</span> <span class="n">Defined</span> <span class="n">Values</span><span class="p">:</span>
+
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">0.0</span> <span class="n">average</span> <span class="n">of</span>       <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">1.289</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">1.299</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">22.5</span> <span class="n">average</span> <span class="n">of</span>      <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">3.855</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">3.809</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">45.0</span> <span class="n">average</span> <span class="n">of</span>      <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">8.296</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">8.34</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">67.5</span> <span class="n">average</span> <span class="n">of</span>      <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">7.768</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">7.79</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">90.0</span> <span class="n">average</span> <span class="n">of</span>      <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">4.424</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">4.468</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">112.5</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">3.293</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">3.336</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">135.0</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">2.827</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">2.833</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">157.5</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">3.516</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">3.484</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">180.0</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">4.033</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">3.97</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">202.5</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">7.831</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">7.694</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">225.0</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">7.922</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">7.939</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">247.5</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">7.913</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">8.06</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">270.0</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">9.003</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">8.998</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">292.5</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">14.692</span>  <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">14.759</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">315.0</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">6.638</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">6.591</span>
+<span class="k">for</span> <span class="n">direction</span> <span class="mf">337.5</span> <span class="n">average</span> <span class="n">of</span>     <span class="n">sampled</span> <span class="n">values</span><span class="p">:</span> <span class="mf">1.749</span>   <span class="ow">and</span> <span class="n">UserDefined</span> <span class="n">value</span><span class="p">:</span> <span class="mf">1.715</span>
+<span class="ow">and</span> <span class="n">Calm</span> <span class="n">condition</span> <span class="ow">is</span><span class="o">=</span> <span class="mf">4.951</span>
+</pre></div>
+</div>
+<p>As it can bee seen, the samples values and defined values for each direction have properly close to each other.</p>
+</div>
+<p>Verification by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

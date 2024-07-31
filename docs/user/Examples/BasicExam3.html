@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Example 3. (4 symetric Tanks) &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basic Example 4. (Individual Risk for 1 Tank)" href="BasicExam4.html" />
+    <link rel="prev" title="Basic Example 2. (2 Close Tanks)" href="BasicExam2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ModelingCommands.html">Modeling commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Examples.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="BasicExam1.html">Basic Example 1. (2 Symmetric Tanks)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicExam2.html">Basic Example 2. (2 Close Tanks)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Example 3. (4 symetric Tanks)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-required-packages">Import required packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-the-model-and-define-reorder">Initialize the model and define reorder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-hazard-curve-and-datetime-object-and-wind-data-and-site-data">Define Hazard Curve and DateTime object and wind Data and Site data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-materials-and-fragilities-and-probits">Define Materials and Fragilities and Probits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-outflow-dispersion-and-physical-effect-models">Define Outflow, Dispersion and physical effect models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-connectors-to-connect-models-to-each-other">Define connectors to connect models to each other</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-safety-dike-and-plant-units">Define Safety dike and plant units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-analysis">Define Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-processing">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-some-scenarios">Plot some scenarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="BasicExam4.html">Basic Example 4. (Individual Risk for 1 Tank)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicExam5.html">Basic Example 5. (Individual Risk for 2 Tank)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicExam6.html">Basic Example 6. (Individual Risk for 4 Tank)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpenSRANE1.html">OpenSRANE, a flexible and extensible platform for quantitative risk assessment of NaTech events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Verifications.html">Verifications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Examples.html">Examples</a></li>
+      <li class="breadcrumb-item active">Basic Example 3. (4 symetric Tanks)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/user/Examples/BasicExam3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-example-3-4-symetric-tanks">
+<span id="basicexam3"></span><h1>Basic Example 3. (4 symetric Tanks)<a class="headerlink" href="#basic-example-3-4-symetric-tanks" title="Link to this heading"></a></h1>
+<p>This example is Same Basic example 1, but tanks are close to each other and domino effects are also included and again because of symmetric of the model we expect that results also be symmetric.</p>
+<p>Data are recorded by Objs_recorder. Also the code completely can be downloaded from <a class="reference download internal" download="" href="../../_downloads/6bc14acf8edfd2dffb494d999d657e9b/Basic%20Example3.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a> in the Jupyter Notebook format.</p>
+<section id="import-required-packages">
+<h2>Import required packages<a class="headerlink" href="#import-required-packages" title="Link to this heading"></a></h2>
+<p>In this example only <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE">OpenSRANE</a> package is enough and there is no need to any other Python packages. So:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="initialize-the-model-and-define-reorder">
+<h2>Initialize the model and define reorder<a class="headerlink" href="#initialize-the-model-and-define-reorder" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Wipe the model to clear any created object if it is created before</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+
+<span class="c1">#Define the recorder</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Recorders</span><span class="o">.</span><span class="n">Objs_recorder</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Recorder_ex3&#39;</span><span class="p">,</span> <span class="n">fileAppend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1">#Clear Warning File content</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Misc</span><span class="o">.</span><span class="n">warningClear</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="define-hazard-curve-and-datetime-object-and-wind-data-and-site-data">
+<h2>Define Hazard Curve and DateTime object and wind Data and Site data<a class="headerlink" href="#define-hazard-curve-and-datetime-object-and-wind-data-and-site-data" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#define Hazard Curve</span>
+<span class="n">PGA</span><span class="o">=</span><span class="p">[</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.29984</span><span class="p">,</span><span class="mf">1.27091</span><span class="p">,</span><span class="mf">1.24865</span><span class="p">,</span><span class="mf">1.22194</span><span class="p">,</span><span class="mf">1.20191</span><span class="p">,</span><span class="mf">1.17297</span><span class="p">,</span><span class="mf">1.13959</span><span class="p">,</span><span class="mf">1.11065</span><span class="p">,</span><span class="mf">1.08172</span><span class="p">,</span>
+     <span class="mf">1.05501</span><span class="p">,</span><span class="mf">1.03275</span><span class="p">,</span><span class="mf">0.994913</span><span class="p">,</span><span class="mf">0.961526</span><span class="p">,</span><span class="mf">0.92814</span><span class="p">,</span><span class="mf">0.899205</span><span class="p">,</span><span class="mf">0.872496</span><span class="p">,</span><span class="mf">0.843561</span><span class="p">,</span><span class="mf">0.816852</span><span class="p">,</span>
+     <span class="mf">0.790143</span><span class="p">,</span><span class="mf">0.761208</span><span class="p">,</span><span class="mf">0.732273</span><span class="p">,</span><span class="mf">0.696661</span><span class="p">,</span><span class="mf">0.667727</span><span class="p">,</span><span class="mf">0.636566</span><span class="p">,</span><span class="mf">0.609857</span><span class="p">,</span><span class="mf">0.589825</span><span class="p">,</span><span class="mf">0.569793</span><span class="p">,</span>
+     <span class="mf">0.549762</span><span class="p">,</span><span class="mf">0.525278</span><span class="p">,</span><span class="mf">0.503021</span><span class="p">,</span><span class="mf">0.48744</span><span class="p">,</span><span class="mf">0.469634</span><span class="p">,</span><span class="mf">0.451828</span><span class="p">,</span><span class="mf">0.431797</span><span class="p">,</span><span class="mf">0.409539</span><span class="p">,</span><span class="mf">0.38283</span><span class="p">,</span>
+     <span class="mf">0.356121</span><span class="p">,</span><span class="mf">0.338315</span><span class="p">,</span><span class="mf">0.307154</span><span class="p">,</span><span class="mf">0.280445</span><span class="p">,</span><span class="mf">0.260413</span><span class="p">,</span><span class="mf">0.23593</span><span class="p">,</span><span class="mf">0.211447</span><span class="p">,</span><span class="mf">0.17806</span><span class="p">,</span><span class="mf">0.158029</span><span class="p">,</span>
+     <span class="mf">0.142448</span><span class="p">,</span><span class="mf">0.126868</span><span class="p">,</span><span class="mf">0.113514</span><span class="p">,</span><span class="mf">0.0979332</span><span class="p">,</span><span class="mf">0.0845787</span><span class="p">,</span><span class="mf">0.0712242</span><span class="p">,</span><span class="mf">0.0578696</span><span class="p">,</span><span class="mf">0.0534181</span><span class="p">,</span>
+     <span class="mf">0.0489666</span><span class="p">,</span><span class="mf">0.0445151</span><span class="p">,</span><span class="mf">0.0356121</span><span class="p">,</span><span class="mf">0.0356121</span><span class="p">,</span><span class="mf">0.0311606</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">PGA</span><span class="o">=</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mf">9.81</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">PGA</span><span class="p">]</span>
+
+<span class="n">Prob</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.000000446937</span><span class="p">,</span><span class="mf">0.000000529832</span><span class="p">,</span><span class="mf">0.000000607087</span><span class="p">,</span><span class="mf">0.000000695608</span><span class="p">,</span><span class="mf">0.000000824624</span><span class="p">,</span><span class="mf">0.000000944864</span><span class="p">,</span>
+      <span class="mf">0.00000115888</span><span class="p">,</span><span class="mf">0.00000137382</span><span class="p">,</span><span class="mf">0.00000157414</span><span class="p">,</span><span class="mf">0.0000019307</span><span class="p">,</span><span class="mf">0.00000206667</span><span class="p">,</span><span class="mf">0.00000262252</span><span class="p">,</span><span class="mf">0.00000321654</span><span class="p">,</span>
+      <span class="mf">0.00000381312</span><span class="p">,</span><span class="mf">0.00000452035</span><span class="p">,</span><span class="mf">0.00000535876</span><span class="p">,</span><span class="mf">0.00000657255</span><span class="p">,</span><span class="mf">0.00000779158</span><span class="p">,</span><span class="mf">0.00000955643</span><span class="p">,</span><span class="mf">0.0000113289</span><span class="p">,</span>
+      <span class="mf">0.0000134301</span><span class="p">,</span><span class="mf">0.0000176322</span><span class="p">,</span><span class="mf">0.000021626</span><span class="p">,</span><span class="mf">0.0000265244</span><span class="p">,</span><span class="mf">0.0000325323</span><span class="p">,</span><span class="mf">0.0000372759</span><span class="p">,</span><span class="mf">0.0000441896</span><span class="p">,</span><span class="mf">0.000050633</span><span class="p">,</span>
+      <span class="mf">0.0000621017</span><span class="p">,</span><span class="mf">0.0000711569</span><span class="p">,</span><span class="mf">0.0000843545</span><span class="p">,</span><span class="mf">0.0000966544</span><span class="p">,</span><span class="mf">0.000110748</span><span class="p">,</span><span class="mf">0.000131288</span><span class="p">,</span><span class="mf">0.000155639</span><span class="p">,</span><span class="mf">0.0001975</span><span class="p">,</span>
+      <span class="mf">0.000259294</span><span class="p">,</span><span class="mf">0.000318026</span><span class="p">,</span><span class="mf">0.000403563</span><span class="p">,</span><span class="mf">0.000548171</span><span class="p">,</span><span class="mf">0.000744597</span><span class="p">,</span><span class="mf">0.00104642</span><span class="p">,</span><span class="mf">0.00152148</span><span class="p">,</span><span class="mf">0.00253478</span><span class="p">,</span><span class="mf">0.00356225</span><span class="p">,</span>
+      <span class="mf">0.00467682</span><span class="p">,</span><span class="mf">0.00657255</span><span class="p">,</span><span class="mf">0.00892769</span><span class="p">,</span><span class="mf">0.0109499</span><span class="p">,</span><span class="mf">0.0143759</span><span class="p">,</span><span class="mf">0.0209024</span><span class="p">,</span><span class="mf">0.0274425</span><span class="p">,</span><span class="mf">0.0325323</span><span class="p">,</span><span class="mf">0.0399011</span><span class="p">,</span><span class="mf">0.048939</span><span class="p">,</span>
+      <span class="mf">0.060024</span><span class="p">,</span><span class="mf">0.0687762</span><span class="p">,</span><span class="mf">0.0843545</span><span class="p">,</span> <span class="mf">0.9999</span><span class="p">]</span>
+
+<span class="n">opr</span><span class="o">.</span><span class="n">Hazard</span><span class="o">.</span><span class="n">Earthquake</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;PGA&#39;</span><span class="p">,</span><span class="n">PGA</span><span class="p">,</span><span class="n">Prob</span><span class="p">)</span> <span class="c1">#Create Hazard Object with tag=1 that is 0th Object</span>
+
+<span class="c1">#Define date time distribution</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">DateAndTime</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Day_Night_Ratio</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">#Define a simple windRose</span>
+<span class="n">windobj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">WindData</span><span class="o">.</span><span class="n">WindRose</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">windobj</span><span class="o">.</span><span class="n">WindDayClassList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">]</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">WindNightClassList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">]</span>
+
+<span class="n">windobj</span><span class="o">.</span><span class="n">AlphaCOEFlist</span><span class="o">=</span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">windobj</span><span class="o">.</span><span class="n">DayWindSpeedList</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">9</span><span class="p">]]</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">NightWindSpeedList</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">9</span><span class="p">]]</span>
+
+<span class="n">windobj</span><span class="o">.</span><span class="n">DayWindFreqMatrix</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                          <span class="p">]</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">NightWindFreqMatrix</span><span class="o">=</span><span class="n">windobj</span><span class="o">.</span><span class="n">DayWindFreqMatrix</span>
+
+    <span class="c1">#Define Site Condition and Geometry</span>
+<span class="n">SiteTAg</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Sites</span><span class="o">.</span><span class="n">Site</span><span class="p">(</span><span class="n">SiteTAg</span><span class="p">,</span> <span class="n">Temperature</span><span class="o">=</span><span class="mi">25</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span> <span class="n">Pressure</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="n">XSiteBoundary</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">YSiteBoundary</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">],</span> <span class="n">g</span><span class="o">=</span><span class="mf">9.81</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="define-materials-and-fragilities-and-probits">
+<h2>Define Materials and Fragilities and Probits<a class="headerlink" href="#define-materials-and-fragilities-and-probits" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Butene considered as tank content. A new value considered for the specific heat of combustion of this material, so the considered value of defined object modified after the definition. Only, pool fire event considered for this model, so only a probit for considering the vulnerability under radiation of tanks defined.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define Substances</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Substance</span><span class="o">.</span><span class="n">DataBank</span><span class="o">.</span><span class="n">Butene</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Use DataBank to Load Material</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Substance</span><span class="o">.</span><span class="n">ObjManager</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Specific_Heat_of_Combustion</span><span class="o">=</span><span class="mf">45.334</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+
+<span class="c1">#Define Fragilities</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Fragilities</span><span class="o">.</span><span class="n">Fragility</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">Distribution_Type</span><span class="o">=</span><span class="s1">&#39;lognormal&#39;</span><span class="p">,</span><span class="n">modename</span><span class="o">=</span><span class="s1">&#39;EBF&#39;</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">StdDev</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Fragilities</span><span class="o">.</span><span class="n">Fragility</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">Distribution_Type</span><span class="o">=</span><span class="s1">&#39;lognormal&#39;</span><span class="p">,</span><span class="n">modename</span><span class="o">=</span><span class="s1">&#39;GDF&#39;</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="mf">1.18</span><span class="p">,</span><span class="n">StdDev</span><span class="o">=</span><span class="mf">0.61</span><span class="p">)</span>
+
+<span class="c1">#Define Probits</span>
+<span class="n">Radiation</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Fragilities</span><span class="o">.</span><span class="n">Probit</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="n">Radiation</span><span class="p">,</span> <span class="n">Distribution_Type</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">K1</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">K2</span><span class="o">=-</span><span class="mf">6.5</span><span class="p">,</span><span class="n">Scale_Factor</span><span class="o">=</span><span class="mi">1500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="define-outflow-dispersion-and-physical-effect-models">
+<h2>Define Outflow, Dispersion and physical effect models<a class="headerlink" href="#define-outflow-dispersion-and-physical-effect-models" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Two different outflow model considered. Also, for all considered outflow models just one dispersion model defined. And fire point source model defined for physical events.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define Outflow Models</span>
+<span class="n">tag</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">OutFlowModel</span><span class="o">.</span><span class="n">TankHole</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">Hole_Diameter</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">Hole_Height_FromBot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delta_t</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">Cd</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">OutFlowModel</span><span class="o">.</span><span class="n">SimultaniousLiquid</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">#Define Dispersion Spread Models and their connections to the materials and outflows</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">DispersionSpreadModels</span><span class="o">.</span><span class="n">LiquidSpread</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">MatTags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">OutFlowModelTags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">MinDisThickness</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,)</span>
+
+<span class="c1">#Define Physical Effect models</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">PhysicalEffect</span><span class="o">.</span><span class="n">fire_point_source</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minf</span><span class="o">=</span><span class="mf">0.055</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="define-connectors-to-connect-models-to-each-other">
+<h2>Define connectors to connect models to each other<a class="headerlink" href="#define-connectors-to-connect-models-to-each-other" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>DS_LOC:</p>
+<blockquote>
+<div><p>Using DS_LOC for damages caused under Fragility tag 1 the outflow model with tag 2 will be consider as the outflow model. Also, for damages caused under Fragility tag 2 the outflow model with tag 1 will be consider as the outflow model.</p>
+</div></blockquote>
+<p>Out_Physic:</p>
+<blockquote>
+<div><p>For any unit that have material with tag 1 and Outflow with tag 1 the physical effect with tag 1 will be considered. Also, For any unit that have material with tag 1 and Outflow with tag 2 the physical effect with tag 1 will be considered again.</p>
+</div></blockquote>
+<p>Pb_LOC:</p>
+<blockquote>
+<div><p>Finally for any units that damaged under because probit tag equal to 3 (Radiation was equal to 3) outflow model with tags 1 or 2 will be consider for them with equal probability. The probability of of seleccting outflowmodel 1 or 2 is equal because the defined weight for them is similar (LOCProbabilityList=[1,1]).</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define the DS_LOC for each Fragility</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Connectors</span><span class="o">.</span><span class="n">DS_LOC</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">FragilityTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">OutFlowModelTagList</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">LOCProbabilityList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Connectors</span><span class="o">.</span><span class="n">DS_LOC</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">FragilityTag</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">OutFlowModelTagList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">LOCProbabilityList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1">#Define OutFlow-Phisycal Effect connection</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Connectors</span><span class="o">.</span><span class="n">Out_Physic</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">OutFlowTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">MaterialsTagList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">PhysicalEffectTagList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">PhysProbabilityList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Connectors</span><span class="o">.</span><span class="n">Out_Physic</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">OutFlowTag</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">MaterialsTagList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">PhysicalEffectTagList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">PhysProbabilityList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1">#Define Probit - LOC loss of containment Connectors</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Connectors</span><span class="o">.</span><span class="n">Pb_LOC</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ProbitTag</span><span class="o">=</span><span class="n">Radiation</span><span class="p">,</span> <span class="n">OutFlowModelTagList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">LOCProbabilityList</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="define-safety-dike-and-plant-units">
+<h2>Define Safety dike and plant units<a class="headerlink" href="#define-safety-dike-and-plant-units" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Plant units defined and its properties according defined models tag specified for them. The Fragility tag and vulnerability probit and their location and material and internal pressure and temprature and …</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define Dike Object</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Safety</span><span class="o">.</span><span class="n">Dike</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">30</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">#Define Plant Units</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ONGStorage</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">SiteTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">DikeTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">SubstanceTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">FragilityTagNumbers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+                          <span class="n">Horizontal_localPosition</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Vertical_localPosition</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                          <span class="n">Surface_Roughness</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">Pressure</span><span class="o">=</span><span class="mf">1.1</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="n">Temperature</span><span class="o">=</span><span class="mi">25</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span>
+                          <span class="n">SubstanceVolumeRatio</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">Diameter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">Height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">GroundTemperature</span><span class="o">=</span><span class="mi">25</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span>
+                          <span class="n">radiation_probit_tag</span><span class="o">=</span><span class="n">Radiation</span><span class="p">,)</span>
+
+<span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ONGStorage</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">SiteTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">DikeTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">SubstanceTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">FragilityTagNumbers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+                          <span class="n">Horizontal_localPosition</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">Vertical_localPosition</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                          <span class="n">Surface_Roughness</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">Pressure</span><span class="o">=</span><span class="mf">1.1</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="n">Temperature</span><span class="o">=</span><span class="mi">25</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span>
+                          <span class="n">SubstanceVolumeRatio</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">Diameter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">Height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">GroundTemperature</span><span class="o">=</span><span class="mi">25</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span>
+                          <span class="n">radiation_probit_tag</span><span class="o">=</span><span class="n">Radiation</span><span class="p">,)</span>
+
+<span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ONGStorage</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">SiteTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">DikeTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">SubstanceTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">FragilityTagNumbers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+                          <span class="n">Horizontal_localPosition</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">Vertical_localPosition</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
+                          <span class="n">Surface_Roughness</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">Pressure</span><span class="o">=</span><span class="mf">1.1</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="n">Temperature</span><span class="o">=</span><span class="mi">25</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span>
+                          <span class="n">SubstanceVolumeRatio</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">Diameter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">Height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">GroundTemperature</span><span class="o">=</span><span class="mi">25</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span>
+                          <span class="n">radiation_probit_tag</span><span class="o">=</span><span class="n">Radiation</span><span class="p">,)</span>
+
+<span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ONGStorage</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">SiteTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">DikeTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">SubstanceTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">FragilityTagNumbers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+                          <span class="n">Horizontal_localPosition</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Vertical_localPosition</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
+                          <span class="n">Surface_Roughness</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">Pressure</span><span class="o">=</span><span class="mf">1.1</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="n">Temperature</span><span class="o">=</span><span class="mi">25</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span>
+                          <span class="n">SubstanceVolumeRatio</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">Diameter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">Height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">GroundTemperature</span><span class="o">=</span><span class="mi">25</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span>
+                          <span class="n">radiation_probit_tag</span><span class="o">=</span><span class="n">Radiation</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="define-analysis">
+<h2>Define Analysis<a class="headerlink" href="#define-analysis" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>By finishing the modeling, Using analysis command the number or analysis and type of analysis specified for model. In this model it is considered to do analysis for 40000 times. MultiAnalysis type considered for analysis and this type implement multiple analysis using only one cpu.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Analysis</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Analyze</span><span class="o">.</span><span class="n">ScenarioAnalyze</span><span class="o">.</span><span class="n">MultiAnalysis</span><span class="p">(</span><span class="n">AnalysisNumber</span><span class="o">=</span><span class="mi">40_000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="post-processing">
+<h2>Post Processing<a class="headerlink" href="#post-processing" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>By finishing the analysis, using the PostProcess subpackage the probability of damage scenarios for each plant unit and for both are calculated. As it is seen in the above results, as we expected, the resulted scenarios are also symmetric. Obviously by increasing the number of the analysis, the probability of scenario (0)-[1] become closer to (0)-[2].</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Post Process</span>
+<span class="n">Results</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">PostProcess</span><span class="o">.</span><span class="n">ObjsRecorderPP</span><span class="p">(</span><span class="s1">&#39;Recorder_ex3&#39;</span><span class="p">)</span>
+
+<span class="n">DM0Scen</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">Results</span><span class="o">.</span><span class="n">Damagelevel_Scenario_Dict</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ScenProb</span><span class="o">=</span><span class="n">Results</span><span class="o">.</span><span class="n">ScenariosProbability</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recorder Scenarios in Damage level 0 =&#39;</span><span class="p">,</span><span class="n">DM0Scen</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">Len</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">DM0Scen</span><span class="p">]))</span>
+<span class="n">Len</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">Len</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">Scenario</span> <span class="ow">in</span> <span class="n">DM0Scen</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">Scenario</span><span class="p">)</span><span class="o">==</span><span class="n">ln</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Probability of Scenario </span><span class="si">{</span><span class="n">Scenario</span><span class="si">}</span><span class="s1"> is equal: </span><span class="si">{</span><span class="n">ScenProb</span><span class="p">[</span><span class="n">Scenario</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="plot-some-scenarios">
+<h2>Plot some scenarios<a class="headerlink" href="#plot-some-scenarios" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Using available commands in plot subpackage we can plot the created scenarios as shown in the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#load Recorded Scenarios</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Recorders</span><span class="o">.</span><span class="n">Objs_recorder_loader</span><span class="o">.</span><span class="n">loadScenarioBank</span><span class="p">(</span><span class="s1">&#39;Recorder_ex3&#39;</span><span class="p">)</span>
+
+
+<span class="c1">#load a scenario to print</span>
+<span class="n">ScenNum</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Recorders</span><span class="o">.</span><span class="n">Objs_recorder_loader</span><span class="o">.</span><span class="n">load1ScenarioOfBank</span><span class="p">(</span><span class="n">ScenNum</span><span class="p">)</span>
+
+<span class="c1">#Plot the model</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Plot</span><span class="o">.</span><span class="n">Plotly</span><span class="o">.</span><span class="n">PlotUnits2D</span><span class="p">(</span><span class="n">PlotMode</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">GasConcentrationlist</span><span class="o">=</span><span class="p">[</span>  <span class="mf">0.1</span>  <span class="p">],</span> <span class="n">GasConcentrationHeght</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ConcentrationPointNumber</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">OverPressureList</span><span class="o">=</span><span class="p">[</span><span class="mi">3000</span><span class="p">],</span><span class="n">RadiationList</span><span class="o">=</span><span class="p">[</span> <span class="mi">1000</span><span class="p">])</span><span class="c1">#RadiationList=[37500,25000,12500, 4000, 1600],RadiationHeight=2, RadiationPointNumber=5</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Example by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

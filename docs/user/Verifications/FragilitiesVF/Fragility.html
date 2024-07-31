@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fragility Module Verification &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Probit Module Verification" href="Probit.html" />
+    <link rel="prev" title="Fragilities Verification" href="../FragilitiesVF.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingCommands.html">Modeling commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../Verifications.html">Verifications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hazardVF.html">Hazard Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateAndTimeVF.html">DateAndTime Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WindDataVF.html">WindData Verification</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../FragilitiesVF.html">Fragilities Verification</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Fragility Module Verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Probit.html">Probit Module Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../OutflowVF.html">Outflow Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConnectorsVF.html">Connectors Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DispersionSpreadModelsVF.html">DispersionSpreadModels Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicalEffectVF.html">PhysicalEffect Verification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../Verifications.html">Verifications</a></li>
+          <li class="breadcrumb-item"><a href="../FragilitiesVF.html">Fragilities Verification</a></li>
+      <li class="breadcrumb-item active">Fragility Module Verification</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/user/Verifications/FragilitiesVF/Fragility.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fragility-module-verification">
+<span id="fragilityvf"></span><h1>Fragility Module Verification<a class="headerlink" href="#fragility-module-verification" title="Link to this heading"></a></h1>
+<p>The question is that <strong>Does the GetProbability method of Fragility object correctly samples the defined distribution?</strong>. To find the answer of this question, first a Fragility object will be created. Then a range of manitude will be define and for each magnitude the result of the GetProbability method will be record and recorded results will be check by results of data created using Excel.</p>
+<p>The below codes can be downloaded from <a class="reference download internal" download="" href="../../../_downloads/27b5146f4242a76f5b23f31a5cd0d139/Fragilities.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a> in Jupyter Notebook format. Also the Excel file that results are checked with, can be downloaded from <a class="reference download internal" download="" href="../../../_downloads/02197c7a9f3416938b925dcab6aa3bd0/Fragilities.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+<div class="admonition-verification1-for-normal-distribution admonition">
+<p class="admonition-title">Verification1 for Normal Distribution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import the software</span>
+<span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
+
+<span class="c1">#Import Matplotlib package for plot purposes</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#Verification for normal distribution</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+
+<span class="n">obj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Fragilities</span><span class="o">.</span><span class="n">Fragility</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Distribution_Type</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">StdDev</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#Excel results for mean=5 and std=2</span>
+<span class="n">Excel</span><span class="o">=</span><span class="p">[</span><span class="mf">0.00620966532577613</span><span class="p">,</span><span class="mf">0.00714281073527141</span><span class="p">,</span><span class="mf">0.00819753592459613</span><span class="p">,</span><span class="mf">0.00938670553483857</span><span class="p">,</span><span class="mf">0.0107241100216758</span><span class="p">,</span><span class="mf">0.0122244726550447</span><span class="p">,</span><span class="mf">0.0139034475134986</span><span class="p">,</span><span class="mf">0.0157776073910905</span><span class="p">,</span><span class="mf">0.0178644205628165</span><span class="p">,</span><span class="mf">0.0201822154057044</span><span class="p">,</span><span class="mf">0.0227501319481792</span><span class="p">,</span><span class="mf">0.0255880595216386</span><span class="p">,</span><span class="mf">0.0287165598160018</span><span class="p">,</span><span class="mf">0.0321567747956137</span><span class="p">,</span><span class="mf">0.0359303191129258</span><span class="p">,</span><span class="mf">0.0400591568638171</span><span class="p">,</span><span class="mf">0.044565462758543</span><span class="p">,</span><span class="mf">0.0494714680336481</span><span class="p">,</span><span class="mf">0.054799291699558</span><span class="p">,</span><span class="mf">0.060570758002059</span><span class="p">,</span><span class="mf">0.0668072012688581</span><span class="p">,</span><span class="mf">0.0735292596096484</span><span class="p">,</span><span class="mf">0.0807566592337711</span><span class="p">,</span><span class="mf">0.088507991437402</span><span class="p">,</span><span class="mf">0.0968004845856103</span><span class="p">,</span><span class="mf">0.105649773666855</span><span class="p">,</span><span class="mf">0.115069670221708</span><span class="p">,</span><span class="mf">0.12507193563715</span><span class="p">,</span><span class="mf">0.135666060946383</span><span class="p">,</span><span class="mf">0.146859056375896</span><span class="p">,</span><span class="mf">0.158655253931457</span><span class="p">,</span><span class="mf">0.171056126308482</span><span class="p">,</span><span class="mf">0.18406012534676</span><span class="p">,</span><span class="mf">0.197662543122692</span><span class="p">,</span><span class="mf">0.211855398583397</span><span class="p">,</span><span class="mf">0.226627352376868</span><span class="p">,</span><span class="mf">0.241963652223073</span><span class="p">,</span><span class="mf">0.257846110805865</span><span class="p">,</span><span class="mf">0.274253117750074</span><span class="p">,</span><span class="mf">0.291159686788346</span><span class="p">,</span><span class="mf">0.308537538725987</span><span class="p">,</span><span class="mf">0.32635522028792</span><span class="p">,</span><span class="mf">0.344578258389676</span><span class="p">,</span><span class="mf">0.363169348824381</span><span class="p">,</span><span class="mf">0.382088577811047</span><span class="p">,</span><span class="mf">0.401293674317076</span><span class="p">,</span><span class="mf">0.420740290560897</span><span class="p">,</span><span class="mf">0.440382307629757</span><span class="p">,</span><span class="mf">0.460172162722971</span><span class="p">,</span><span class="mf">0.480061194161628</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.519938805838372</span><span class="p">,</span><span class="mf">0.539827837277029</span><span class="p">,</span><span class="mf">0.559617692370243</span><span class="p">,</span><span class="mf">0.579259709439103</span><span class="p">,</span><span class="mf">0.598706325682924</span><span class="p">,</span><span class="mf">0.617911422188953</span><span class="p">,</span><span class="mf">0.636830651175619</span><span class="p">,</span><span class="mf">0.655421741610324</span><span class="p">,</span><span class="mf">0.67364477971208</span><span class="p">,</span><span class="mf">0.691462461274013</span><span class="p">,</span><span class="mf">0.708840313211654</span><span class="p">,</span><span class="mf">0.725746882249926</span><span class="p">,</span><span class="mf">0.742153889194135</span><span class="p">,</span><span class="mf">0.758036347776927</span><span class="p">,</span><span class="mf">0.773372647623132</span><span class="p">,</span><span class="mf">0.788144601416603</span><span class="p">,</span><span class="mf">0.802337456877308</span><span class="p">,</span><span class="mf">0.81593987465324</span><span class="p">,</span><span class="mf">0.828943873691518</span><span class="p">,</span><span class="mf">0.841344746068543</span><span class="p">,</span><span class="mf">0.853140943624104</span><span class="p">,</span><span class="mf">0.864333939053617</span><span class="p">,</span><span class="mf">0.87492806436285</span><span class="p">,</span><span class="mf">0.884930329778292</span><span class="p">,</span><span class="mf">0.894350226333145</span><span class="p">,</span><span class="mf">0.90319951541439</span><span class="p">,</span><span class="mf">0.911492008562598</span><span class="p">,</span><span class="mf">0.919243340766229</span><span class="p">,</span><span class="mf">0.926470740390352</span><span class="p">,</span><span class="mf">0.933192798731142</span><span class="p">,</span><span class="mf">0.939429241997941</span><span class="p">,</span><span class="mf">0.945200708300442</span><span class="p">,</span><span class="mf">0.950528531966352</span><span class="p">,</span><span class="mf">0.955434537241457</span><span class="p">,</span><span class="mf">0.959940843136183</span><span class="p">,</span><span class="mf">0.964069680887074</span><span class="p">,</span><span class="mf">0.967843225204386</span><span class="p">,</span><span class="mf">0.971283440183998</span><span class="p">,</span><span class="mf">0.974411940478361</span><span class="p">,</span><span class="mf">0.977249868051821</span><span class="p">,</span><span class="mf">0.979817784594296</span><span class="p">,</span><span class="mf">0.982135579437183</span><span class="p">,</span><span class="mf">0.98422239260891</span><span class="p">,</span><span class="mf">0.986096552486501</span><span class="p">,</span><span class="mf">0.987775527344955</span><span class="p">,</span><span class="mf">0.989275889978324</span><span class="p">,</span><span class="mf">0.990613294465161</span><span class="p">,</span><span class="mf">0.991802464075404</span><span class="p">,</span><span class="mf">0.992857189264729</span><span class="p">,</span><span class="mf">0.993790334674224</span><span class="p">]</span>
+
+<span class="c1">#Excel range of the Random Variable</span>
+<span class="n">Magnitude</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">10</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">)]</span>
+
+<span class="c1">#List of generated values by Created Object (obj)</span>
+<span class="n">Generated</span><span class="o">=</span><span class="p">[</span><span class="n">obj</span><span class="o">.</span><span class="n">GetProbability</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Magnitude</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Magnitude</span><span class="p">,</span><span class="n">Excel</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Excel&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Magnitude</span><span class="p">,</span><span class="n">Generated</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Generated&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Magnitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CDF Distribution for distribution=</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">DistType</span><span class="si">}</span><span class="s1"> mean=</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">mean</span><span class="si">}</span><span class="s1"> and std=</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">StdDev</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The result of above code has been shown on the following image:</p>
+<figure class="align-center" id="id1">
+<span id="frag1vf"></span><img alt="../../../_images/Fragility.png" src="../../../_images/Fragility.png" />
+<figcaption>
+<p><span class="caption-text">Comparision of results and defined curve in Excel</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition-verification2-for-lognormal-distribution admonition">
+<p class="admonition-title">Verification2 for LogNormal Distribution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import the software</span>
+<span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
+
+<span class="c1">#Import Matplotlib package for plot purposes</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#Verification for lognormal distribution</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">obj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Fragilities</span><span class="o">.</span><span class="n">Fragility</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Distribution_Type</span><span class="o">=</span><span class="s1">&#39;lognormal&#39;</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">StdDev</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="c1">#Excel results for mean=1.8 and std=0.75</span>
+<span class="n">Excel</span><span class="o">=</span><span class="p">[</span><span class="mf">0.000443368872962805</span><span class="p">,</span><span class="mf">0.00819753592459613</span><span class="p">,</span><span class="mf">0.0314866575293163</span><span class="p">,</span><span class="mf">0.0699982906412703</span><span class="p">,</span><span class="mf">0.119342693644532</span><span class="p">,</span><span class="mf">0.17484684050795</span><span class="p">,</span><span class="mf">0.232802266520937</span><span class="p">,</span><span class="mf">0.290608642066892</span><span class="p">,</span><span class="mf">0.346582538307854</span><span class="p">,</span><span class="mf">0.399715801925924</span><span class="p">,</span><span class="mf">0.449469192643485</span><span class="p">,</span><span class="mf">0.495616760008879</span><span class="p">,</span><span class="mf">0.538134969498259</span><span class="p">,</span><span class="mf">0.577126148320459</span><span class="p">,</span><span class="mf">0.612766708635067</span><span class="p">,</span><span class="mf">0.645272716115421</span><span class="p">,</span><span class="mf">0.67487738964635</span><span class="p">,</span><span class="mf">0.701816715355177</span><span class="p">,</span><span class="mf">0.72632053093662</span><span class="p">,</span><span class="mf">0.748607266593389</span><span class="p">,</span><span class="mf">0.768881105912544</span><span class="p">,</span><span class="mf">0.787330726979907</span><span class="p">,</span><span class="mf">0.804129055749149</span><span class="p">,</span><span class="mf">0.819433649162196</span><span class="p">,</span><span class="mf">0.833387451949063</span><span class="p">,</span><span class="mf">0.846119757123861</span><span class="p">,</span><span class="mf">0.85774725873404</span><span class="p">,</span><span class="mf">0.868375125142364</span><span class="p">,</span><span class="mf">0.878098047981419</span><span class="p">,</span><span class="mf">0.88700123998492</span><span class="p">,</span><span class="mf">0.895161366949546</span><span class="p">,</span><span class="mf">0.902647407020044</span><span class="p">,</span><span class="mf">0.909521435626017</span><span class="p">,</span><span class="mf">0.915839337628887</span><span class="p">,</span><span class="mf">0.921651450179559</span><span class="p">,</span><span class="mf">0.927003140865757</span><span class="p">,</span><span class="mf">0.931935326234779</span><span class="p">,</span><span class="mf">0.936484935912391</span><span class="p">,</span><span class="mf">0.940685327438584</span><span class="p">,</span><span class="mf">0.944566656698678</span><span class="p">,</span><span class="mf">0.948156208506431</span><span class="p">,</span><span class="mf">0.951478691535855</span><span class="p">,</span><span class="mf">0.954556501427705</span><span class="p">,</span><span class="mf">0.957409955532165</span><span class="p">,</span><span class="mf">0.960057502401805</span><span class="p">,</span><span class="mf">0.962515908824167</span><span class="p">,</span><span class="mf">0.96480042688445</span><span class="p">,</span><span class="mf">0.966924943276341</span><span class="p">,</span><span class="mf">0.968902112832907</span><span class="p">,</span><span class="mf">0.970743478028256</span><span class="p">,</span><span class="mf">0.972459576002877</span><span class="p">,</span><span class="mf">0.974060034489253</span><span class="p">,</span><span class="mf">0.975553657857638</span><span class="p">,</span><span class="mf">0.97694850436288</span><span class="p">,</span><span class="mf">0.978251955550021</span><span class="p">,</span><span class="mf">0.979470778667453</span><span class="p">,</span><span class="mf">0.980611182840105</span><span class="p">,</span><span class="mf">0.981678869669968</span><span class="p">,</span><span class="mf">0.98267907885608</span><span class="p">,</span><span class="mf">0.983616629359644</span><span class="p">]</span>
+
+<span class="c1">#Excel range of the Random Variable</span>
+<span class="n">Magnitude</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">61</span><span class="p">)]</span>
+
+<span class="c1">#List of generated values by Created Object (obj)</span>
+<span class="n">Generated</span><span class="o">=</span><span class="p">[</span><span class="n">obj</span><span class="o">.</span><span class="n">GetProbability</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Magnitude</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Magnitude</span><span class="p">,</span><span class="n">Excel</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Excel&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Magnitude</span><span class="p">,</span><span class="n">Generated</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Generated&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Magnitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CDF Dist-Type=</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">DistType</span><span class="si">}</span><span class="s1"> mean of Ln(x)=</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">mean</span><span class="si">}</span><span class="s1"> and std of Ln(x)=</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">StdDev</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The result of above code has been shown on the following image:</p>
+<figure class="align-center" id="id2">
+<span id="frag2vf"></span><img alt="../../../_images/FragilityLog.png" src="../../../_images/FragilityLog.png" />
+<figcaption>
+<p><span class="caption-text">Comparision of results and defined curve in Excel</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+<p>Verification by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

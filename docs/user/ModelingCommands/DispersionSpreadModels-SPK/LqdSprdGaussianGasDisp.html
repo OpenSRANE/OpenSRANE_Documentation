@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LqdSprdGaussianGasDisp Command &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="PhysicalEffect Subpackage" href="../PhysicalEffect-spk.html" />
+    <link rel="prev" title="GasGaussian Command" href="GasGaussian.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../ModelingCommands.html">Modeling commands</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../MiscCommands.html">Miscellaneous(Misc) Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tags.html">Tags (Concept)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Objects.html">Objects (Concept)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hazard-spk.html">Hazard Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateAndTime-spk.html">DateAndTime Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WindData-spk.html">WindData Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Sites-spk.html">Sites Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Substance-spk.html">Substance Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Fragilities-spk.html">Fragilities Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OutFlowModel-spk.html">OutFlowModel Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Connectors-spk.html">Connectors Subpackage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../DispersionSpreadModels-spk.html">DispersionSpreadModels Subpackage</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="LiquidSpread.html">LiquidSpread Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BritterMcQuaid.html">BritterMcQuaid Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GasGaussian.html">GasGaussian Command</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">LqdSprdGaussianGasDisp Command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DispersionSpreadModels.LqdSprdGaussianGasDisp"><code class="docutils literal notranslate"><span class="pre">DispersionSpreadModels.LqdSprdGaussianGasDisp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicalEffect-spk.html">PhysicalEffect Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Safety-spk.html">Safety Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlantUnits-spk.html">PlantUnits Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Recorders-spk.html">Recorders Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Analyze-spk.html">Analyze Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NodesGroups-spk.html">NodesGroups Subpackage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Verifications.html">Verifications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../ModelingCommands.html">Modeling commands</a></li>
+          <li class="breadcrumb-item"><a href="../DispersionSpreadModels-spk.html">DispersionSpreadModels Subpackage</a></li>
+      <li class="breadcrumb-item active">LqdSprdGaussianGasDisp Command</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/user/ModelingCommands/DispersionSpreadModels-SPK/LqdSprdGaussianGasDisp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lqdsprdgaussiangasdisp-command">
+<span id="lqdsprdgaussiangasdisp"></span><h1>LqdSprdGaussianGasDisp Command<a class="headerlink" href="#lqdsprdgaussiangasdisp-command" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="DispersionSpreadModels.LqdSprdGaussianGasDisp">
+<span class="sig-prename descclassname"><span class="pre">DispersionSpreadModels.</span></span><span class="sig-name descname"><span class="pre">LqdSprdGaussianGasDisp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MatTags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OutFlowModelTags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MinDisThickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Surface_Roughnesslist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Surface_RoughnessThickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vaporization_Delta_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TotalDuration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GasConstant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8.31446261815324</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GasDispersionXSegments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GasDisperstionErrorPercent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DispersionSpreadModels.LqdSprdGaussianGasDisp" title="Link to this definition"></a></dt>
+<dd><p>This command is for modeling the spread of the liquids and then calculate its gas dispersion in the environment. So, it is appropriate for liquids that their gas dispersions are important to be considered.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tag</p></td>
+<td><p>int</p></td>
+<td><p>Unique integer value that will be used for referring to the defined elements or objects.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MatTags</p></td>
+<td><p>list of int</p></td>
+<td><p>List of defined materials that user wants to consider this module for them as their behavior.</p></td>
+</tr>
+<tr class="row-even"><td><p>OutFlowModelTags</p></td>
+<td><p>list of int</p></td>
+<td><p>List of outflow models that this model can happen after happening them.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MinDisThickness</p></td>
+<td><p>list of float</p></td>
+<td><p>Minimum thickness of the liquid until it has not reached to the dike wall (if dike has been defined before). If user do not define any value for this parameter, it will be considered equal to 0.01 m.</p></td>
+</tr>
+<tr class="row-even"><td><p>Surface_Roughnesslist</p></td>
+<td><p>list of float</p></td>
+<td><p>List of existing surfaces roughness’s.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Surface_RoughnessThickness</p></td>
+<td><p>list of float</p></td>
+<td><p>list of Thickness values corresponding to each Roughnesslist value.</p></td>
+</tr>
+<tr class="row-even"><td><p>Vaporization_Delta_t</p></td>
+<td><p>float</p></td>
+<td><p>steps time distance for vaporization calculations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TotalDuration</p></td>
+<td><p>float</p></td>
+<td><p>total time of vaporization.</p></td>
+</tr>
+<tr class="row-even"><td><p>GasDispersionXSegments</p></td>
+<td><p>int</p></td>
+<td><p>number of segments that are considered to calculate the dispersion and also dispersed mass of gas.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GasDisperstionErrorPercent</p></td>
+<td><p>float</p></td>
+<td><p>Error percentage for numerical calculations.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<p>Create some imaginary materials:</p>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
+
+<span class="n">opr</span><span class="o">.</span><span class="n">DispersionSpreadModels</span><span class="o">.</span><span class="n">LqdSprdGaussianGasDisp</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">MatTags</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">OutFlowModelTags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">MinDisThickness</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">Vaporization_Delta_t</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">TotalDuration</span><span class="o">=</span><span class="mi">1800</span><span class="p">,</span><span class="n">GasConstant</span><span class="o">=</span><span class="mf">8.31446261815324</span><span class="p">,</span><span class="n">GasDispersionXSegments</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">GasDisperstionErrorPercent</span><span class="o">=</span><span class="mi">1</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<p>Code Developed by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VCE_TNT Module Verification &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Source Code" href="../../../developer/sourceCode.html" />
+    <link rel="prev" title="fire_point_source Module Verification" href="fire_point_source.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingCommands.html">Modeling commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../Verifications.html">Verifications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hazardVF.html">Hazard Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateAndTimeVF.html">DateAndTime Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WindDataVF.html">WindData Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FragilitiesVF.html">Fragilities Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OutflowVF.html">Outflow Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConnectorsVF.html">Connectors Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DispersionSpreadModelsVF.html">DispersionSpreadModels Verification</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../PhysicalEffectVF.html">PhysicalEffect Verification</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fire_point_source.html">fire_point_source Module Verification</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">VCE_TNT Module Verification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../Verifications.html">Verifications</a></li>
+          <li class="breadcrumb-item"><a href="../PhysicalEffectVF.html">PhysicalEffect Verification</a></li>
+      <li class="breadcrumb-item active">VCE_TNT Module Verification</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/user/Verifications/PhysicalEffectVF/VCE_TNT.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vce-tnt-module-verification">
+<span id="vcetntvf"></span><h1>VCE_TNT Module Verification<a class="headerlink" href="#vce-tnt-module-verification" title="Link to this heading"></a></h1>
+<p>The VCE TNT model is formulated according model explained in Casal book <a class="reference internal" href="fire_point_source.html#ref-1" id="id1"><span>[Ref.1]</span></a>. To validate the calculations of this module, example 4.1 of Casal book chose. The following code model the example condition and the final result is checked by example results.</p>
+<p>The below codes can be downloaded from <a class="reference download internal" download="" href="../../../_downloads/1b61b52e1b8b733c06faa1c015c3cf67/VCE_TNT.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a> in Jupyter Notebook format.</p>
+<div class="admonition-verification admonition">
+<p class="admonition-title">Verification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+
+<span class="c1">#Define Wind Rose</span>
+<span class="n">windobj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">WindData</span><span class="o">.</span><span class="n">WindRose</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">WindSpeed</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">WindDirection</span><span class="o">=</span><span class="mi">90</span>
+
+<span class="c1">#Define Site Condition and Geometry</span>
+<span class="n">SiteTAg</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">obj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Sites</span><span class="o">.</span><span class="n">Site</span><span class="p">(</span><span class="n">SiteTAg</span><span class="p">,</span> <span class="n">Temperature</span><span class="o">=</span><span class="mi">16</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span> <span class="n">Pressure</span><span class="o">=</span><span class="mf">1.013</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="n">XSiteBoundary</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">YSiteBoundary</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">],</span>
+                   <span class="n">g</span><span class="o">=</span><span class="mf">9.81</span><span class="p">,</span><span class="n">Humidity</span><span class="o">=</span><span class="mf">0.79</span><span class="p">,</span><span class="n">Airdensity</span><span class="o">=</span><span class="mf">0.270</span><span class="p">)</span>
+
+<span class="c1">#Define Substance</span>
+<span class="n">propane</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">subsobj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Substance</span><span class="o">.</span><span class="n">Material</span><span class="p">(</span><span class="n">propane</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Propane&#39;</span><span class="p">,</span><span class="n">Density</span><span class="o">=</span><span class="mi">553</span><span class="p">,</span><span class="n">GasDensity</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">BoilingPointGasDensity</span><span class="o">=</span><span class="mf">2.32</span><span class="p">,</span> <span class="n">Specific_Heat_Ratio</span><span class="o">=</span><span class="mf">1.15</span><span class="p">,</span>
+                               <span class="n">Molecular_Weight</span><span class="o">=</span><span class="mf">44.1</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">Specific_Heat_of_Combustion</span><span class="o">=</span><span class="mf">43.930</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span>
+                               <span class="n">Lower_Flammability_Limit</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">Upper_Flammability_Limit</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,)</span>
+
+<span class="c1">#Define OutFlow Model</span>
+<span class="n">OutflowObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">OutFlowModel</span><span class="o">.</span><span class="n">GasUnitHole</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Hole_Diameter</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">Total_t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">Cd</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Gas_Constant</span><span class="o">=</span><span class="mf">8.31446261815324</span><span class="p">)</span>
+
+<span class="c1">#Define Dispersion Model</span>
+<span class="n">DispObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">DispersionSpreadModels</span><span class="o">.</span><span class="n">BritterMcQuaid</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">MatTags</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">OutFlowModelTags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">MassParts</span><span class="o">=</span><span class="mi">20</span><span class="p">,)</span>
+
+<span class="c1">#Define Dike for Tanks</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Safety</span><span class="o">.</span><span class="n">Dike</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">3.1415</span><span class="o">*</span><span class="mi">6</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1">#Define Plant Unit</span>
+<span class="n">PlantObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ONGStorage</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">SiteTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">DikeTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">SubstanceTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">Diameter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">Pressure</span><span class="o">=</span> <span class="mf">1.769025</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="n">Temperature</span><span class="o">=</span><span class="mi">16</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span>
+                                   <span class="n">Horizontal_localPosition</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>    <span class="n">Vertical_localPosition</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                   <span class="n">Height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">SubstanceVolumeRatio</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+
+<span class="c1">#Manually define OutFlow Model for above Unit Object</span>
+<span class="n">PlantObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">=</span><span class="n">OutflowObj</span>
+<span class="n">OutflowObj</span><span class="o">.</span><span class="n">UnitObject</span><span class="o">=</span><span class="n">PlantObj</span>
+<span class="n">PlantObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">.</span><span class="n">Calculate</span><span class="p">()</span>
+
+
+<span class="c1">#Manually define DispersionSpread Model for above Unit Object</span>
+<span class="n">PlantObj</span><span class="o">.</span><span class="n">DispersionSpreadModelObject</span><span class="o">=</span><span class="n">DispObj</span>
+<span class="n">PlantObj</span><span class="o">.</span><span class="n">DispersionSpreadModelObject</span><span class="o">.</span><span class="n">UnitObject</span><span class="o">=</span><span class="n">PlantObj</span>
+<span class="n">PlantObj</span><span class="o">.</span><span class="n">DispersionSpreadModelObject</span><span class="o">.</span><span class="n">Calculate</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exposive mass =&quot;</span><span class="p">,</span><span class="n">DispObj</span><span class="o">.</span><span class="n">GasExplosiveMass</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Explosive Mass center = &quot;</span><span class="p">,</span> <span class="n">DispObj</span><span class="o">.</span><span class="n">GasExplosiveCenterX</span><span class="p">,</span><span class="n">DispObj</span><span class="o">.</span><span class="n">GasExplosiveCenterY</span><span class="p">,</span><span class="n">DispObj</span><span class="o">.</span><span class="n">GasExplosiveCenterZ</span><span class="p">)</span>
+
+
+
+<span class="n">obj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">PhysicalEffect</span><span class="o">.</span><span class="n">VCE_TNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">UnitObject</span><span class="o">=</span><span class="n">PlantObj</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">Calculate</span><span class="p">()</span>
+<span class="n">dP</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">OverPressure_at_Point</span><span class="p">(</span><span class="n">DispObj</span><span class="o">.</span><span class="n">GasExplosiveCenterX</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">500</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Over Pressure Value in 500 m Over Explosive mass Center =&quot;</span><span class="p">,</span><span class="n">dP</span><span class="o">/</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot; Bar&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;in casal Example 4.1, </span><span class="se">\n</span><span class="s1">d=500 m </span><span class="se">\n</span><span class="s1">M (Explosive Mass)= 30,000 </span><span class="se">\n</span><span class="s1">DeltaHc=43930*1000&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;And the result of over pressure is = 0.049 Bar&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;That is compatible with the above results!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result of above code has been shown in the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Exposive mass = [30000.0545780576]
+Explosive Mass center =  [205.0062463385579] [0.0] [1.6781175585645267e-07]
+The Over Pressure Value in 500 m Over Explosive mass Center = 0.048807472058782414  Bar
+
+in casal Example 4.1,
+d=500 m
+M (Explosive Mass)= 30,000
+DeltaHc=43930*1000
+And the result of over pressure is = 0.049 Bar
+That is compatible with the above results!
+</pre></div>
+</div>
+</div>
+<div role="list" class="citation-list">
+<div class="citation" id="ref-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Ref.1</a><span class="fn-bracket">]</span></span>
+<p><cite>J. Casal, Evaluation of the Effects and Consequences of Major Accidents in Industrial Plants, vol. 8. 2018.</cite></p>
+</div>
+</div>
+<p>Code Developed by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objs_recorder Command &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Objs_recorder_loader module" href="Objs_recorder_loader.html" />
+    <link rel="prev" title="Recorders Subpackage" href="../Recorders-spk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../ModelingCommands.html">Modeling commands</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../MiscCommands.html">Miscellaneous(Misc) Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tags.html">Tags (Concept)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Objects.html">Objects (Concept)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hazard-spk.html">Hazard Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateAndTime-spk.html">DateAndTime Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WindData-spk.html">WindData Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Sites-spk.html">Sites Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Substance-spk.html">Substance Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Fragilities-spk.html">Fragilities Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OutFlowModel-spk.html">OutFlowModel Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Connectors-spk.html">Connectors Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DispersionSpreadModels-spk.html">DispersionSpreadModels Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicalEffect-spk.html">PhysicalEffect Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Safety-spk.html">Safety Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlantUnits-spk.html">PlantUnits Subpackage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Recorders-spk.html">Recorders Subpackage</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Objs_recorder Command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Recorders.Objs_recorder"><code class="docutils literal notranslate"><span class="pre">Recorders.Objs_recorder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Objs_recorder_loader.html">Objs_recorder_loader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Recorder.html">Recorder Command</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Analyze-spk.html">Analyze Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NodesGroups-spk.html">NodesGroups Subpackage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Verifications.html">Verifications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../ModelingCommands.html">Modeling commands</a></li>
+          <li class="breadcrumb-item"><a href="../Recorders-spk.html">Recorders Subpackage</a></li>
+      <li class="breadcrumb-item active">Objs_recorder Command</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/user/ModelingCommands/Recorders-SPK/Objs_recorder.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="objs-recorder-command">
+<span id="objsrecorder"></span><h1>Objs_recorder Command<a class="headerlink" href="#objs-recorder-command" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="Recorders.Objs_recorder">
+<span class="sig-prename descclassname"><span class="pre">Recorders.</span></span><span class="sig-name descname"><span class="pre">Objs_recorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileAppend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RecodingSubpackages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['PlantUnits',</span> <span class="pre">'Hazard',</span> <span class="pre">'DateAndTime',</span> <span class="pre">'WindData',</span> <span class="pre">'NodesGroups']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MergeSavedFiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Recorders.Objs_recorder" title="Link to this definition"></a></dt>
+<dd><p>Using this command, a file will be determined by the user to record all simulated scenarios objects. By every analyze, the created objects and results will be record in the mentioned file and user can call them using the load commands.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tag</p></td>
+<td><p>int</p></td>
+<td><p>Unique integer value that will be used for referring to the defined elements or objects.</p></td>
+</tr>
+<tr class="row-odd"><td><p>filename</p></td>
+<td><p>str</p></td>
+<td><p>Name of the file that user wants to record data in.</p></td>
+</tr>
+<tr class="row-even"><td><p>fileAppend</p></td>
+<td><p>boolean</p></td>
+<td><p>True says that if the filename exists, add the recorded scenarios to the existing file and false will clear the file if exists.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RecodingSubpackages</p></td>
+<td><p>list</p></td>
+<td><p>List of subpackages that Users wanna to be recorded by recorders. The default value is [‘PlantUnits’,’Hazard’, ‘DateAndTime’, ‘WindData’] which contains some variables that their values usually changaed by each simulation. But also other subpackages can be added by user except ‘Recorders’. The Other subpackages that their variables values are initially assigned and never changes during simulation will be record once at the first savefile.</p></td>
+</tr>
+<tr class="row-even"><td><p>MergeSavedFiles</p></td>
+<td><p>boolean</p></td>
+<td><p>By setting this option to True, When analysis finished all saved files will be merge into one file with suffix M. Attention that for huge models it take so much memory and time and is not recomonded for huge models!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<p>The following demonstrates the use of the Objs_recorder command and just saves ‘PlantUnits’ objects in each simulation.</p>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
+
+<span class="n">opr</span><span class="o">.</span><span class="n">Recorders</span><span class="o">.</span><span class="n">Objs_recorder</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;ObjsRecorder&#39;</span><span class="p">,</span> <span class="n">SaveStep</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">fileAppend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">RecodingSubpackages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PlantUnits&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Attention: Initially this command had SaveStep option that was the Number of steps that after that data will be move to the file and memory become empty but it has removed to Anlysis command because different recorders because of parallel issues can not have different save step. So, the following definition does not exist here else. To prevent any probable error still it exist in the input argument but do not have any effect.</p>
+<blockquote>
+<div><p><strong>SaveStep, int, Number of steps that after that data will be move to the file and memory become empty. Bigger values cause faster analysis but it needs enough system memory.</strong></p>
+</div></blockquote>
+</div>
+</dd></dl>
+
+<p>Code Developed by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

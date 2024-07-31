@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earthquake Module Verification &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="DateAndTime Verification" href="../DateAndTimeVF.html" />
+    <link rel="prev" title="Hazard Verification" href="../hazardVF.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingCommands.html">Modeling commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../Verifications.html">Verifications</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../hazardVF.html">Hazard Verification</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Earthquake Module Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../DateAndTimeVF.html">DateAndTime Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WindDataVF.html">WindData Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FragilitiesVF.html">Fragilities Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OutflowVF.html">Outflow Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConnectorsVF.html">Connectors Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DispersionSpreadModelsVF.html">DispersionSpreadModels Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicalEffectVF.html">PhysicalEffect Verification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../Verifications.html">Verifications</a></li>
+          <li class="breadcrumb-item"><a href="../hazardVF.html">Hazard Verification</a></li>
+      <li class="breadcrumb-item active">Earthquake Module Verification</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/user/Verifications/hazardVF/Earthquake.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="earthquake-module-verification">
+<span id="earthquakevf"></span><h1>Earthquake Module Verification<a class="headerlink" href="#earthquake-module-verification" title="Link to this heading"></a></h1>
+<p>The question is that <strong>Does the SampleRandomMagnitude method of Earthquake object correctly samples the magnitudes?</strong>. To find the answer of this question, first a hazard object will be created. Then numerous samples will be created and record. Finally the distribution of recorded samples will be check by defined hazard object.</p>
+<p>The below codes can be downloaded from <a class="reference download internal" download="" href="../../../_downloads/f07f8d0c3d2ad8dfa050bb430cb7cccc/Hazard.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a> in Jupyter Notebook format.</p>
+<div class="admonition-verification1 admonition">
+<p class="admonition-title">Verification1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import the software</span>
+<span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
+
+<span class="c1">#Import Matplotlib package for plot purposes</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#Import random package</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1">#Clear Memory from probable created objects</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+
+<span class="c1">#Create Hazard Object with tag=1 that is 0th Object</span>
+<span class="n">PGA</span><span class="o">=</span><span class="p">[</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.29984</span><span class="p">,</span><span class="mf">1.27091</span><span class="p">,</span><span class="mf">1.24865</span><span class="p">,</span><span class="mf">1.22194</span><span class="p">,</span><span class="mf">1.20191</span><span class="p">,</span><span class="mf">1.17297</span><span class="p">,</span><span class="mf">1.13959</span><span class="p">,</span><span class="mf">1.11065</span><span class="p">,</span><span class="mf">1.08172</span><span class="p">,</span>
+     <span class="mf">1.05501</span><span class="p">,</span><span class="mf">1.03275</span><span class="p">,</span><span class="mf">0.994913</span><span class="p">,</span><span class="mf">0.961526</span><span class="p">,</span><span class="mf">0.92814</span><span class="p">,</span><span class="mf">0.899205</span><span class="p">,</span><span class="mf">0.872496</span><span class="p">,</span><span class="mf">0.843561</span><span class="p">,</span><span class="mf">0.816852</span><span class="p">,</span>
+     <span class="mf">0.790143</span><span class="p">,</span><span class="mf">0.761208</span><span class="p">,</span><span class="mf">0.732273</span><span class="p">,</span><span class="mf">0.696661</span><span class="p">,</span><span class="mf">0.667727</span><span class="p">,</span><span class="mf">0.636566</span><span class="p">,</span><span class="mf">0.609857</span><span class="p">,</span><span class="mf">0.589825</span><span class="p">,</span><span class="mf">0.569793</span><span class="p">,</span>
+     <span class="mf">0.549762</span><span class="p">,</span><span class="mf">0.525278</span><span class="p">,</span><span class="mf">0.503021</span><span class="p">,</span><span class="mf">0.48744</span><span class="p">,</span><span class="mf">0.469634</span><span class="p">,</span><span class="mf">0.451828</span><span class="p">,</span><span class="mf">0.431797</span><span class="p">,</span><span class="mf">0.409539</span><span class="p">,</span><span class="mf">0.38283</span><span class="p">,</span>
+     <span class="mf">0.356121</span><span class="p">,</span><span class="mf">0.338315</span><span class="p">,</span><span class="mf">0.307154</span><span class="p">,</span><span class="mf">0.280445</span><span class="p">,</span><span class="mf">0.260413</span><span class="p">,</span><span class="mf">0.23593</span><span class="p">,</span><span class="mf">0.211447</span><span class="p">,</span><span class="mf">0.17806</span><span class="p">,</span><span class="mf">0.158029</span><span class="p">,</span>
+     <span class="mf">0.142448</span><span class="p">,</span><span class="mf">0.126868</span><span class="p">,</span><span class="mf">0.113514</span><span class="p">,</span><span class="mf">0.0979332</span><span class="p">,</span><span class="mf">0.0845787</span><span class="p">,</span><span class="mf">0.0712242</span><span class="p">,</span><span class="mf">0.0578696</span><span class="p">,</span><span class="mf">0.0534181</span><span class="p">,</span>
+     <span class="mf">0.0489666</span><span class="p">,</span><span class="mf">0.0445151</span><span class="p">,</span><span class="mf">0.0356121</span><span class="p">,</span><span class="mf">0.0356121</span><span class="p">,</span><span class="mf">0.0311606</span><span class="p">]</span>
+
+<span class="n">Prob</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.000000446937</span><span class="p">,</span><span class="mf">0.000000529832</span><span class="p">,</span><span class="mf">0.000000607087</span><span class="p">,</span><span class="mf">0.000000695608</span><span class="p">,</span><span class="mf">0.000000824624</span><span class="p">,</span><span class="mf">0.000000944864</span><span class="p">,</span>
+      <span class="mf">0.00000115888</span><span class="p">,</span><span class="mf">0.00000137382</span><span class="p">,</span><span class="mf">0.00000157414</span><span class="p">,</span><span class="mf">0.0000019307</span><span class="p">,</span><span class="mf">0.00000206667</span><span class="p">,</span><span class="mf">0.00000262252</span><span class="p">,</span><span class="mf">0.00000321654</span><span class="p">,</span>
+      <span class="mf">0.00000381312</span><span class="p">,</span><span class="mf">0.00000452035</span><span class="p">,</span><span class="mf">0.00000535876</span><span class="p">,</span><span class="mf">0.00000657255</span><span class="p">,</span><span class="mf">0.00000779158</span><span class="p">,</span><span class="mf">0.00000955643</span><span class="p">,</span><span class="mf">0.0000113289</span><span class="p">,</span>
+      <span class="mf">0.0000134301</span><span class="p">,</span><span class="mf">0.0000176322</span><span class="p">,</span><span class="mf">0.000021626</span><span class="p">,</span><span class="mf">0.0000265244</span><span class="p">,</span><span class="mf">0.0000325323</span><span class="p">,</span><span class="mf">0.0000372759</span><span class="p">,</span><span class="mf">0.0000441896</span><span class="p">,</span><span class="mf">0.000050633</span><span class="p">,</span>
+      <span class="mf">0.0000621017</span><span class="p">,</span><span class="mf">0.0000711569</span><span class="p">,</span><span class="mf">0.0000843545</span><span class="p">,</span><span class="mf">0.0000966544</span><span class="p">,</span><span class="mf">0.000110748</span><span class="p">,</span><span class="mf">0.000131288</span><span class="p">,</span><span class="mf">0.000155639</span><span class="p">,</span><span class="mf">0.0001975</span><span class="p">,</span>
+      <span class="mf">0.000259294</span><span class="p">,</span><span class="mf">0.000318026</span><span class="p">,</span><span class="mf">0.000403563</span><span class="p">,</span><span class="mf">0.000548171</span><span class="p">,</span><span class="mf">0.000744597</span><span class="p">,</span><span class="mf">0.00104642</span><span class="p">,</span><span class="mf">0.00152148</span><span class="p">,</span><span class="mf">0.00253478</span><span class="p">,</span><span class="mf">0.00356225</span><span class="p">,</span>
+      <span class="mf">0.00467682</span><span class="p">,</span><span class="mf">0.00657255</span><span class="p">,</span><span class="mf">0.00892769</span><span class="p">,</span><span class="mf">0.0109499</span><span class="p">,</span><span class="mf">0.0143759</span><span class="p">,</span><span class="mf">0.0209024</span><span class="p">,</span><span class="mf">0.0274425</span><span class="p">,</span><span class="mf">0.0325323</span><span class="p">,</span><span class="mf">0.0399011</span><span class="p">,</span><span class="mf">0.048939</span><span class="p">,</span>
+      <span class="mf">0.060024</span><span class="p">,</span><span class="mf">0.0687762</span><span class="p">,</span><span class="mf">0.0843545</span><span class="p">]</span>
+
+<span class="n">obj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Hazard</span><span class="o">.</span><span class="n">Earthquake</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;PGA&#39;</span><span class="p">,</span><span class="n">PGA</span><span class="p">,</span><span class="n">Prob</span><span class="p">)</span>
+
+<span class="c1">#Sampling and recording results</span>
+<span class="n">Freq</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">PGA</span><span class="p">]</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">1000</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+
+    <span class="n">Magnitude</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Hazard</span><span class="o">.</span><span class="n">ObjManager</span><span class="o">.</span><span class="n">Objlst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">SampleRandomMagnitude</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">Magnitude</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="k">for</span> <span class="n">mag</span> <span class="ow">in</span> <span class="n">PGA</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">Magnitude</span><span class="o">&gt;=</span><span class="n">mag</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">Magnitude</span><span class="o">==</span><span class="n">mag</span><span class="p">:</span>
+                <span class="n">Freq</span><span class="p">[</span><span class="n">PGA</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">mag</span><span class="p">)]</span> <span class="o">+=</span><span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Freq</span><span class="p">[</span><span class="n">PGA</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">mag</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span><span class="mi">1</span>
+            <span class="k">break</span>
+
+<span class="n">Freq</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="n">N</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Freq</span><span class="p">]</span>
+<span class="n">Freq</span><span class="o">=</span><span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">Freq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Freq</span><span class="p">))]</span>
+
+
+<span class="c1">#Plot Results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PGA</span><span class="p">,</span><span class="n">Prob</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PGA</span><span class="p">,</span><span class="n">Freq</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sampled&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;PGA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of exceedance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The result of above code has been shown on the following image:</p>
+<figure class="align-center" id="id1">
+<span id="firstvf"></span><img alt="../../../_images/FirstVF.png" src="../../../_images/FirstVF.png" />
+<figcaption>
+<p><span class="caption-text">Numeric results of samples and defined hazard curve</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition-verification2 admonition">
+<p class="admonition-title">Verification2:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import the software</span>
+<span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
+
+<span class="c1">#Import Matplotlib package for plot purposes</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#Import random package</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1">#Clear Memory from probable created objects</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+
+<span class="c1">#Create Hazard Object with tag=1 that is 0th Object</span>
+<span class="n">PGA</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="o">/</span><span class="mi">100</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">61</span><span class="p">)]</span>
+
+<span class="n">Prob</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0004</span><span class="o">*</span><span class="n">i</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">1.82</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">PGA</span><span class="p">]</span>
+<span class="n">Prob</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="n">obj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Hazard</span><span class="o">.</span><span class="n">Earthquake</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;PGA&#39;</span><span class="p">,</span><span class="n">PGA</span><span class="p">,</span><span class="n">Prob</span><span class="p">)</span>
+
+<span class="c1">#Sampling and recording results</span>
+
+<span class="n">Freq</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">PGA</span><span class="p">]</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">1000</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+
+    <span class="n">Magnitude</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Hazard</span><span class="o">.</span><span class="n">ObjManager</span><span class="o">.</span><span class="n">Objlst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">SampleRandomMagnitude</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">Magnitude</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="k">for</span> <span class="n">mag</span> <span class="ow">in</span> <span class="n">PGA</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+
+        <span class="k">if</span> <span class="n">Magnitude</span><span class="o">&gt;=</span><span class="n">mag</span><span class="p">:</span>
+
+            <span class="n">Freq</span><span class="p">[</span><span class="n">PGA</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">mag</span><span class="p">)]</span> <span class="o">+=</span><span class="mi">1</span>
+            <span class="k">break</span>
+
+<span class="n">M</span><span class="o">=</span><span class="n">N</span><span class="o">-</span><span class="nb">sum</span><span class="p">(</span><span class="n">Freq</span><span class="p">)</span>
+<span class="n">Freq</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="n">N</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Freq</span><span class="p">]</span>
+<span class="n">Freq</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="o">-</span><span class="n">M</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">-</span><span class="nb">sum</span><span class="p">(</span><span class="n">Freq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Freq</span><span class="p">))]</span>
+
+<span class="c1">#Plot The results</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PGA</span><span class="p">,</span><span class="n">Prob</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PGA</span><span class="p">,</span><span class="n">Freq</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sampled&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;PGA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of exceedance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The result of above code has been shown on the following image:</p>
+<figure class="align-center" id="id2">
+<span id="secondvf"></span><img alt="../../../_images/SecondVF.png" src="../../../_images/SecondVF.png" />
+<figcaption>
+<p><span class="caption-text">Numeric results of samples and defined hazard curve</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+<p>Verification by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiquidSpread Module Verification &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="BritterMcQuaid Module Verification" href="BritterMcQuaid.html" />
+    <link rel="prev" title="DispersionSpreadModels Verification" href="../DispersionSpreadModelsVF.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingCommands.html">Modeling commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../Verifications.html">Verifications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hazardVF.html">Hazard Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateAndTimeVF.html">DateAndTime Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WindDataVF.html">WindData Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FragilitiesVF.html">Fragilities Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OutflowVF.html">Outflow Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConnectorsVF.html">Connectors Verification</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../DispersionSpreadModelsVF.html">DispersionSpreadModels Verification</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">LiquidSpread Module Verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BritterMcQuaid.html">BritterMcQuaid Module Verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GasGaussian.html">GasGaussian Module Verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LqdSprdGaussianGasDisp.html">LqdSprdGaussianGasDisp Module Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicalEffectVF.html">PhysicalEffect Verification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../Verifications.html">Verifications</a></li>
+          <li class="breadcrumb-item"><a href="../DispersionSpreadModelsVF.html">DispersionSpreadModels Verification</a></li>
+      <li class="breadcrumb-item active">LiquidSpread Module Verification</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/user/Verifications/DispersionSpreadModelsVF/LiquidSpread.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="liquidspread-module-verification">
+<span id="liquidspreadvf"></span><h1>LiquidSpread Module Verification<a class="headerlink" href="#liquidspread-module-verification" title="Link to this heading"></a></h1>
+<p>In this module the outflow mass will be dispersed in a circular shape with the center equal to the unit or equipment and radius equal to dike area if defined or radius equal to volume of the outflow mass with defined thickness.
+This module is responsible for check the availability of dike and limiting the spread of liquid to the dike area and if there is no dike, determine the minimum thickness of the liquid depend on the defined surface toughness and return the area (radius) of the spread liquid.
+To check the functionality of this module to handle the above responsibilities, using the following examples, results has been checked and compared with handy calculations.</p>
+<p>The below codes can be downloaded from <a class="reference download internal" download="" href="../../../_downloads/8ad005d7d0a8632fc01ceb4780f68362/LiquidSpread.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a> in Jupyter Notebook format.</p>
+<div class="admonition-verification admonition">
+<p class="admonition-title">Verification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Verification for Pool Liquid Spread</span>
+<span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+
+<span class="n">SiteTAg</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Sites</span><span class="o">.</span><span class="n">Site</span><span class="p">(</span><span class="n">SiteTAg</span><span class="p">,</span> <span class="n">Temperature</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="n">Pressure</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="mf">10197.16</span><span class="p">)</span>
+
+<span class="c1">#Define Material</span>
+<span class="n">Subsobj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Substance</span><span class="o">.</span><span class="n">DataBank</span><span class="o">.</span><span class="n">CasCalEx2_1</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#Define Outflow Models</span>
+<span class="n">OutFlowObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">OutFlowModel</span><span class="o">.</span><span class="n">TankHole</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Hole_Diameter</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">Hole_Height_FromBot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delta_t</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">Cd</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#Define Dispesion Spread Models and their connections to the materials and outflows</span>
+<span class="n">DispObject</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">DispersionSpreadModels</span><span class="o">.</span><span class="n">LiquidSpread</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">MatTags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">OutFlowModelTags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="n">MinDisThickness</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">Surface_Roughnesslist</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">],</span>
+                                                   <span class="n">Surface_RoughnessThickness</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.015</span><span class="p">,</span><span class="mf">0.02</span><span class="p">])</span>
+
+<span class="c1">#Define Plant Unit</span>
+<span class="n">UnitObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ONGStorage</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">SiteTag</span><span class="o">=</span><span class="n">SiteTAg</span><span class="p">,</span>
+                                    <span class="n">Horizontal_localPosition</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">Vertical_localPosition</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                                    <span class="n">Diameter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">Height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                    <span class="n">SubstanceTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">SubstanceVolumeRatio</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span><span class="n">Surface_Roughness</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1">#Handy Calculations</span>
+<span class="n">VSubs</span><span class="o">=</span><span class="mf">3.1415</span><span class="o">*</span><span class="mi">5</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">10</span><span class="o">*</span><span class="mf">0.85</span>
+<span class="n">MassSub</span><span class="o">=</span><span class="n">Subsobj</span><span class="o">.</span><span class="n">Density</span><span class="o">*</span><span class="n">VSubs</span>
+<span class="n">PoolArea</span><span class="o">=</span><span class="n">VSubs</span><span class="o">/</span><span class="mf">0.015</span>
+<span class="n">PoolRadius</span><span class="o">=</span><span class="p">(</span><span class="n">PoolArea</span><span class="o">*</span><span class="mi">4</span><span class="o">/</span><span class="mf">3.1415</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="c1">#These steps will be done Automatically By the Program inside the Analysis Part</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">=</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">OutFlowObj</span><span class="p">)</span>  <span class="c1">#Assign OutFlow Model to Unit Object</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">.</span><span class="n">UnitObject</span><span class="o">=</span><span class="n">UnitObj</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">.</span><span class="n">Calculate</span><span class="p">();</span>          <span class="c1">#Calculate OutFlow Calculations to get</span>
+
+
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">=</span><span class="n">DispObject</span>           <span class="c1">#Assign Dispersion Object to the Unit Object</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">UnitObject</span><span class="o">=</span><span class="n">UnitObj</span>   <span class="c1">#Assign the UnitObject to the Dispersion Model</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">Calculate</span><span class="p">()</span>      <span class="c1">#Do Calculations</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Dispersion Time=&#39;</span><span class="p">,</span><span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">t_disp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Liquid Dispersion Center at each Time=&#39;</span><span class="p">,</span><span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">LiquidCenter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Liquid Dispersion Radious =&#39;</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">LiquidRadious</span><span class="p">),</span> <span class="s1">&#39;And handy Calculated Radius is=&#39;</span><span class="p">,</span><span class="n">PoolRadius</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Liquid Dispersion Thickness =&#39;</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">LiquidThickness</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The result of above code has been shown in the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dispersion</span> <span class="n">Time</span><span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1100</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1300</span><span class="p">,</span> <span class="mi">1400</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">1700</span><span class="p">,</span> <span class="mi">1800</span><span class="p">,</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2100</span><span class="p">,</span> <span class="mi">2200</span><span class="p">,</span> <span class="mi">2300</span><span class="p">,</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">2600</span><span class="p">,</span> <span class="mi">2700</span><span class="p">,</span> <span class="mi">2800</span><span class="p">,</span> <span class="mi">2900</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">3100</span><span class="p">,</span> <span class="mf">3200.5558851357086</span><span class="p">]</span>
+
+<span class="n">Liquid</span> <span class="n">Dispersion</span> <span class="n">Center</span> <span class="n">at</span> <span class="n">each</span> <span class="n">Time</span><span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)]</span>
+
+<span class="n">Liquid</span> <span class="n">Dispersion</span> <span class="n">Radious</span> <span class="o">=</span> <span class="mf">59.51278116960603</span> <span class="n">And</span> <span class="n">handy</span> <span class="n">Calculated</span> <span class="n">Radius</span> <span class="ow">is</span><span class="o">=</span> <span class="mf">59.511903571190416</span>
+
+<span class="n">Liquid</span> <span class="n">Dispersion</span> <span class="n">Thickness</span> <span class="o">=</span> <span class="mf">0.015</span>
+</pre></div>
+</div>
+</div>
+<p>To check the effect of the dike, above example has been repeated in the following by considering a dike with area and radius less than above calculated area.</p>
+<div class="admonition-second-verification admonition">
+<p class="admonition-title">Second Verification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Verification for Pool Liquid Spread With considering a dike</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+
+<span class="n">SiteTAg</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Sites</span><span class="o">.</span><span class="n">Site</span><span class="p">(</span><span class="n">SiteTAg</span><span class="p">,</span> <span class="n">Temperature</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="n">Pressure</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="mf">10197.16</span><span class="p">)</span>
+
+<span class="c1">#Define Material</span>
+<span class="n">Subsobj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Substance</span><span class="o">.</span><span class="n">DataBank</span><span class="o">.</span><span class="n">CasCalEx2_1</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#Define Outflow Models</span>
+<span class="n">OutFlowObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">OutFlowModel</span><span class="o">.</span><span class="n">TankHole</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Hole_Diameter</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">Hole_Height_FromBot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delta_t</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">Cd</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#Define Dispesion Spread Models and their connections to the materials and outflows</span>
+<span class="n">DispObject</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">DispersionSpreadModels</span><span class="o">.</span><span class="n">LiquidSpread</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">MatTags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">OutFlowModelTags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="n">MinDisThickness</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">Surface_Roughnesslist</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">],</span>
+                                                   <span class="n">Surface_RoughnessThickness</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.015</span><span class="p">,</span><span class="mf">0.02</span><span class="p">])</span>
+<span class="c1">#Define Dike Object</span>
+<span class="n">Adike</span><span class="o">=</span><span class="mi">5000</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Safety</span><span class="o">.</span><span class="n">Dike</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">Height</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">Area</span><span class="o">=</span><span class="n">Adike</span><span class="p">)</span>
+
+<span class="c1">#Define Plant Unit</span>
+<span class="n">UnitObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ONGStorage</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">SiteTag</span><span class="o">=</span><span class="n">SiteTAg</span><span class="p">,</span><span class="n">DikeTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                    <span class="n">Horizontal_localPosition</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">Vertical_localPosition</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                                    <span class="n">Diameter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">Height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                    <span class="n">SubstanceTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">SubstanceVolumeRatio</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span><span class="n">Surface_Roughness</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1">#Handy Calculations</span>
+<span class="n">VSubs</span><span class="o">=</span><span class="mf">3.1415</span><span class="o">*</span><span class="mi">5</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">10</span><span class="o">*</span><span class="mf">0.85</span>
+<span class="n">MassSub</span><span class="o">=</span><span class="n">Subsobj</span><span class="o">.</span><span class="n">Density</span><span class="o">*</span><span class="n">VSubs</span>
+<span class="n">PoolRadius</span><span class="o">=</span><span class="p">(</span><span class="n">Adike</span><span class="o">*</span><span class="mi">4</span><span class="o">/</span><span class="mf">3.1415</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="c1">#These steps will be done Automatically By the Program inside the Analysis Part</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">=</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">OutFlowObj</span><span class="p">)</span>  <span class="c1">#Assign OutFlow Model to Unit Object</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">.</span><span class="n">UnitObject</span><span class="o">=</span><span class="n">UnitObj</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">.</span><span class="n">Calculate</span><span class="p">();</span>          <span class="c1">#Calculate OutFlow Calculations to get</span>
+
+
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">=</span><span class="n">DispObject</span>           <span class="c1">#Assign Dispersion Object to the Unit Object</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">UnitObject</span><span class="o">=</span><span class="n">UnitObj</span>   <span class="c1">#Assign the UnitObject to the Dispersion Model</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">Calculate</span><span class="p">()</span>      <span class="c1">#Do Calculations</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Dispersion Time=&#39;</span><span class="p">,</span><span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">t_disp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Liquid Dispersion Center at each Time=&#39;</span><span class="p">,</span><span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">LiquidCenter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Liquid Dispersion Radious =&#39;</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionModelObject</span><span class="o">.</span><span class="n">LiquidRadious</span><span class="p">),</span> <span class="s1">&#39;And handy Calculated Radius is=&#39;</span><span class="p">,</span><span class="n">PoolRadius</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result of above code has been shown in the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dispersion</span> <span class="n">Time</span><span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1100</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1300</span><span class="p">,</span> <span class="mi">1400</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">1700</span><span class="p">,</span> <span class="mi">1800</span><span class="p">,</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2100</span><span class="p">,</span> <span class="mi">2200</span><span class="p">,</span> <span class="mi">2300</span><span class="p">,</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">2600</span><span class="p">,</span> <span class="mi">2700</span><span class="p">,</span> <span class="mi">2800</span><span class="p">,</span> <span class="mi">2900</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">3100</span><span class="p">,</span> <span class="mf">3200.5558851357086</span><span class="p">]</span>
+
+<span class="n">Liquid</span> <span class="n">Dispersion</span> <span class="n">Center</span> <span class="n">at</span> <span class="n">each</span> <span class="n">Time</span><span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)]</span>
+
+<span class="n">Liquid</span> <span class="n">Dispersion</span> <span class="n">Radious</span> <span class="o">=</span> <span class="mf">39.89481634448608</span> <span class="n">And</span> <span class="n">handy</span> <span class="n">Calculated</span> <span class="n">Radius</span> <span class="ow">is</span><span class="o">=</span> <span class="mf">39.89481634448608</span>
+</pre></div>
+</div>
+</div>
+<p>Verification by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

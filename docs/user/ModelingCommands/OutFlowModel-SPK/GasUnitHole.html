@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GasUnitHole Command &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Liquid10min Command" href="Liquid10min.html" />
+    <link rel="prev" title="TankHoleSeries Commands" href="TankHoleSeries.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../ModelingCommands.html">Modeling commands</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../MiscCommands.html">Miscellaneous(Misc) Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tags.html">Tags (Concept)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Objects.html">Objects (Concept)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hazard-spk.html">Hazard Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateAndTime-spk.html">DateAndTime Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WindData-spk.html">WindData Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Sites-spk.html">Sites Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Substance-spk.html">Substance Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Fragilities-spk.html">Fragilities Subpackage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../OutFlowModel-spk.html">OutFlowModel Subpackage</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="TankSimultanious.html">TankSimultanious Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TankHoleSeries.html">TankHoleSeries Commands</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GasUnitHole Command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#OutFlowModel.GasUnitHole"><code class="docutils literal notranslate"><span class="pre">OutFlowModel.GasUnitHole()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Liquid10min.html">Liquid10min Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NoOutFlow.html">NoOutFlow Command</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Connectors-spk.html">Connectors Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DispersionSpreadModels-spk.html">DispersionSpreadModels Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicalEffect-spk.html">PhysicalEffect Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Safety-spk.html">Safety Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlantUnits-spk.html">PlantUnits Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Recorders-spk.html">Recorders Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Analyze-spk.html">Analyze Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NodesGroups-spk.html">NodesGroups Subpackage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Verifications.html">Verifications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../ModelingCommands.html">Modeling commands</a></li>
+          <li class="breadcrumb-item"><a href="../OutFlowModel-spk.html">OutFlowModel Subpackage</a></li>
+      <li class="breadcrumb-item active">GasUnitHole Command</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/user/ModelingCommands/OutFlowModel-SPK/GasUnitHole.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gasunithole-command">
+<span id="gasunithole"></span><h1>GasUnitHole Command<a class="headerlink" href="#gasunithole-command" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="OutFlowModel.GasUnitHole">
+<span class="sig-prename descclassname"><span class="pre">OutFlowModel.</span></span><span class="sig-name descname"><span class="pre">GasUnitHole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hole_Diameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Total_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Gas_Constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8.31446261815324</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OutFlowModel.GasUnitHole" title="Link to this definition"></a></dt>
+<dd><p>This command models gas outflow from a hole using the following flowchart from <a class="reference internal" href="../../Verifications/PhysicalEffectVF/fire_point_source.html#ref-1" id="id1"><span>[Ref.1]</span></a>.</p>
+<figure class="align-center" id="id3">
+<img alt="../../../_images/GasHoleAlgorithm.png" src="../../../_images/GasHoleAlgorithm.png" />
+<figcaption>
+<p><span class="caption-text">GasUnitHole command flowchart</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tag</p></td>
+<td><p>int</p></td>
+<td><p>Unique integer value that will be used for referring to the defined elements or objects.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hole_Diameter</p></td>
+<td><p>float</p></td>
+<td><p>Diameter of the hole that gas is releasing from.</p></td>
+</tr>
+<tr class="row-even"><td><p>Total_t</p></td>
+<td><p>float</p></td>
+<td><p>Total duration of outflow</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cd</p></td>
+<td><p>float</p></td>
+<td><p>Explained in <a class="reference internal" href="../../Verifications/PhysicalEffectVF/fire_point_source.html#ref-1" id="id2"><span>[Ref.1]</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Gas_Constant</p></td>
+<td><p>float</p></td>
+<td><p>Gas Constant</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
+
+<span class="n">opr</span><span class="o">.</span><span class="n">OutFlowModel</span><span class="o">.</span><span class="n">GasUnitHole</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Hole_Diameter</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">Total_t</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">Cd</span><span class="o">=</span><span class="mf">0.62</span><span class="p">,</span> <span class="n">Gas_Constant</span><span class="o">=</span><span class="mf">8.31446261815324</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<div role="list" class="citation-list">
+<div class="citation" id="ref-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Ref.1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p><cite>J. Casal, Evaluation of the Effects and Consequences of Major Accidents in Industrial Plants, vol. 8. 2018.</cite></p>
+</div>
+</div>
+<p>Code Developed by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

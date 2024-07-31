@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subpackages callable global parameters &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PostProcess SubPackage" href="PostProcess_SPK.html" />
+    <link rel="prev" title="Access to defined objects" href="Access2Objs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ModelingCommands.html">Modeling commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../PostProcessing.html">Post Processing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Access2Objs.html">Access to defined objects</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Subpackages callable global parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hazard">Hazard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dateandtime">DateAndTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#winddata">WindData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sites">Sites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#substance">Substance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fragilities">Fragilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connectors">Connectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safety">Safety</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outflowmodel">OutFlowModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dispersionspreadmodels">DispersionSpreadModels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physicaleffect">PhysicalEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plantunits">PlantUnits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nodesgroup">NodesGroup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PostProcess_SPK.html">PostProcess SubPackage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Verifications.html">Verifications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../PostProcessing.html">Post Processing</a></li>
+      <li class="breadcrumb-item active">Subpackages callable global parameters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/user/PostProcessing/SubpackagesGlobParameters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="subpackages-callable-global-parameters">
+<span id="subglobpara"></span><h1>Subpackages callable global parameters<a class="headerlink" href="#subpackages-callable-global-parameters" title="Link to this heading"></a></h1>
+<p>For any defined object (that has its own tag) after finishing the analysis, user can call the parameters that that are evaluated. Each object has global parameters and also its internal defined parameters. In this part global parameters of each object that users can call and check the resulted values are described.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The called parameters return the results of the current analyzed scenario or current loaded scenario. So, if user get the following parameters after <a class="reference internal" href="../ModelingCommands/Analyze-SPK/MultiParallel.html#multiparallel"><span class="std std-ref">MultiParallel</span></a> analysis command, it just returns the last scenario result. So, if user wants to get all scenario results the following ways are applicable:</p>
+<ul class="simple">
+<li><p>Use <a class="reference internal" href="../ModelingCommands/Analyze-SPK/UniAnalyze.html#unianalyze"><span class="std std-ref">UniAnalyze</span></a> analysis in a loop and call the desired parameters after the analysis command. (Not Suggested)</p></li>
+<li><p>Use <a class="reference internal" href="../ModelingCommands/Recorders-SPK/Objs_recorder_loader.html#objsrecorderloader"><span class="std std-ref">Objs_recorder_loader</span></a> commands and load the ObjsRecorder file and load it into the memory and then using load1ScenarioOfBank(ScenarioTag) loop on all ScenarioTags and call the desired parameter/s.</p></li>
+</ul>
+</div>
+<section id="hazard">
+<h2>Hazard<a class="headerlink" href="#hazard" title="Link to this heading"></a></h2>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SampledMagnitude</p></td>
+<td><p>Obvious.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<blockquote>
+<div><p>In the following example the Earthquake has defined with tag 1 and its SampledMagnitude has been called.</p>
+</div></blockquote>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opr</span><span class="o">.</span><span class="n">Hazard</span><span class="o">.</span><span class="n">ObjManager</span><span class="o">.</span><span class="n">TagObjDict</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">SampledMagnitude</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</section>
+<section id="dateandtime">
+<h2>DateAndTime<a class="headerlink" href="#dateandtime" title="Link to this heading"></a></h2>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Day_Night_Ratio</p></td>
+<td><p>Defined by user.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SampledisDay</p></td>
+<td><p>A boolean that shows the result of sampling. True shows it is day.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<blockquote>
+<div><p>In the following example the Datetime has defined with tag 1 and its SampledisDay has been called:</p>
+</div></blockquote>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opr</span><span class="o">.</span><span class="n">DateAndTime</span><span class="o">.</span><span class="n">ObjManager</span><span class="o">.</span><span class="n">TagObjDict</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">SampledisDay</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</section>
+<section id="winddata">
+<h2>WindData<a class="headerlink" href="#winddata" title="Link to this heading"></a></h2>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WindClass</p></td>
+<td><p>Class of sampled wind</p></td>
+</tr>
+<tr class="row-odd"><td><p>WindDirection</p></td>
+<td><p>Direction of sampled wind.</p></td>
+</tr>
+<tr class="row-even"><td><p>WindSpeed</p></td>
+<td><p>Speed of sampled wind.</p></td>
+</tr>
+<tr class="row-odd"><td><p>AlphaCOEF</p></td>
+<td><p>Alpha coefficient of sampled wind.</p></td>
+</tr>
+<tr class="row-even"><td><p>isCalmn</p></td>
+<td><p>The calm condition of sampled wind. True shows the calm condition.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<blockquote>
+<div><p>In the following example the WindData has defined with tag 1 and its Wind speed has been called:</p>
+</div></blockquote>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opr</span><span class="o">.</span><span class="n">WindData</span><span class="o">.</span><span class="n">ObjManager</span><span class="o">.</span><span class="n">TagObjDict</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">WindSpeed</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</section>
+<section id="sites">
+<h2>Sites<a class="headerlink" href="#sites" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Nothing special to call.</p>
+</div></blockquote>
+</section>
+<section id="substance">
+<h2>Substance<a class="headerlink" href="#substance" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Nothing special to call.</p>
+</div></blockquote>
+</section>
+<section id="fragilities">
+<h2>Fragilities<a class="headerlink" href="#fragilities" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Nothing special to call.</p>
+</div></blockquote>
+</section>
+<section id="connectors">
+<h2>Connectors<a class="headerlink" href="#connectors" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Nothing special to call.</p>
+</div></blockquote>
+</section>
+<section id="safety">
+<h2>Safety<a class="headerlink" href="#safety" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Nothing special to call.</p>
+</div></blockquote>
+</section>
+<section id="outflowmodel">
+<h2>OutFlowModel<a class="headerlink" href="#outflowmodel" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class can not be called directly and it should be called from the object(like plant unit) that it was assigned to. Look at the following example.</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>t_release</p></td>
+<td><p>Returns list of the release time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MassLiquidReleaseRate</p></td>
+<td><p>Returns list of Liquid release rate at each t_release.</p></td>
+</tr>
+<tr class="row-even"><td><p>dMassLiquid_release</p></td>
+<td><p>Returns list of released mass of the liquid at each t_release.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TotalMassLiquid_Release</p></td>
+<td><p>Returns list of total released mass at each t_release.</p></td>
+</tr>
+<tr class="row-even"><td><p>MassGasReleaseRate</p></td>
+<td><p>Returns list of Gas mass release rate at each t_release.</p></td>
+</tr>
+<tr class="row-odd"><td><p>dMassGas_release</p></td>
+<td><p>Returns list of released mass of the gas at each t_release.</p></td>
+</tr>
+<tr class="row-even"><td><p>TotalMassGas_Release</p></td>
+<td><p>Returns list of total released mass of gas at each t_release.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<blockquote>
+<div><p>To get list of total gas released of the PlantUnit with tag 1 :</p>
+</div></blockquote>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ObjManager</span><span class="o">.</span><span class="n">TagObjDict</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">.</span><span class="n">TotalMassGas_Release</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</section>
+<section id="dispersionspreadmodels">
+<h2>DispersionSpreadModels<a class="headerlink" href="#dispersionspreadmodels" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class can not be called directly and it should be called from the object(like plant unit) that it was assigned to. Look at the following example.</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>t_disp</p></td>
+<td><p>Returns list of the Dispersion time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LiquidRadious</p></td>
+<td><p>Returns list of the liquid radius at each t_disp.</p></td>
+</tr>
+<tr class="row-even"><td><p>LiquidCenter</p></td>
+<td><p>Returns list of the liquid center at each t_disp.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LiquidThickness</p></td>
+<td><p>Returns list of the liquid thickness at each t_disp.</p></td>
+</tr>
+<tr class="row-even"><td><p>t_dispLiquidVaporization</p></td>
+<td><p>Returns list of the liquid vaporization time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LiquidVaporizationMassRate</p></td>
+<td><p>Returns list of the vaporization mass rate at each t_dispLiquidVaporization.</p></td>
+</tr>
+<tr class="row-even"><td><p>LiquidVaporizationMass</p></td>
+<td><p>Returns list of the total vaporized mass at each t_dispLiquidVaporization.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GasExplosiveMass</p></td>
+<td><p>Returns list of the total explosive mass at each t_dispLiquidVaporization.</p></td>
+</tr>
+<tr class="row-even"><td><p>GasExplosiveCenterX</p></td>
+<td><p>Returns list of the explosive mass x center at each t_dispLiquidVaporization.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GasExplosiveCenterY</p></td>
+<td><p>Returns list of the explosive mass y center at each t_dispLiquidVaporization.</p></td>
+</tr>
+<tr class="row-even"><td><p>GasExplosiveCenterZ</p></td>
+<td><p>Returns list of the explosive mass z center at each.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<blockquote>
+<div><p>To get list of total mass of vaporized gas of the PlantUnit with tag 1 :</p>
+</div></blockquote>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ObjManager</span><span class="o">.</span><span class="n">TagObjDict</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">DispersionSpreadModelObject</span><span class="o">.</span><span class="n">GasExplosiveMass</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</section>
+<section id="physicaleffect">
+<h2>PhysicalEffect<a class="headerlink" href="#physicaleffect" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class can not be called directly and it should be called from the object(like plant unit) that it was assigned to. Look at the following example.</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Thermal_Radiation_at_Point(x,y,z)</p></td>
+<td><p>Returns thermal radiation and entered point.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RadiationBoundary(Radiation,Height,PointNumber)</p></td>
+<td><p>Returns Boundary points with equal radiation value equal to entered Radiation and entered height.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverPressure_at_Point(x,y,z)</p></td>
+<td><p>Returns over pressure value at entered point.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OverPressureBoundary(OverPressure, Height, PointNumber)</p></td>
+<td><p>Returns Boundary points with equal Over pressure value equal to entered Radiation and entered height.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<blockquote>
+<div><p>To get Thermal radiation value of a fired PlantUnit with tag 1 at point with coordinate (5,8,2):</p>
+</div></blockquote>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ObjManager</span><span class="o">.</span><span class="n">Objlst</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">PhysicalEffectObject</span><span class="o">.</span><span class="n">Thermal_Radiation_at_Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</section>
+<section id="plantunits">
+<h2>PlantUnits<a class="headerlink" href="#plantunits" title="Link to this heading"></a></h2>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DamageSource</p></td>
+<td><p>Returns damage source name.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DamageSourceTag</p></td>
+<td><p>Returns damage source tag.</p></td>
+</tr>
+<tr class="row-even"><td><p>DamageSourceDose</p></td>
+<td><p>Returns damage source dose.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DamageSourceType</p></td>
+<td><p>Returns damage source type.</p></td>
+</tr>
+<tr class="row-even"><td><p>DamageFragilityTag</p></td>
+<td><p>Returns Fragility/Probit tag that cause damage.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DamageLevel</p></td>
+<td><p>Returns damage level.</p></td>
+</tr>
+<tr class="row-even"><td><p>OutFlowModelTag</p></td>
+<td><p>Returns Outflow model tag.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OutFlowModelname</p></td>
+<td><p>Returns Outflow model name.</p></td>
+</tr>
+<tr class="row-even"><td><p>OutFlowModelObject</p></td>
+<td><p>Returns Outflow model object.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DispersionSpreadModelTag</p></td>
+<td><p>Returns Dispersion model tag.</p></td>
+</tr>
+<tr class="row-even"><td><p>DispersionSpreadModelname</p></td>
+<td><p>Returns Dispersion model name.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DispersionSpreadModelObject</p></td>
+<td><p>Returns Dispersion model Object.</p></td>
+</tr>
+<tr class="row-even"><td><p>PhysicalEffectModelTag</p></td>
+<td><p>Returns Physical effect model tag.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PhysicalEffectModelname</p></td>
+<td><p>Returns Physical effect model name.</p></td>
+</tr>
+<tr class="row-even"><td><p>PhysicalEffectObject</p></td>
+<td><p>Returns Physical effect model object.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<blockquote>
+<div><p>To get Damage Source of a damaged PlantUnit with tag 1:</p>
+</div></blockquote>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ObjManager</span><span class="o">.</span><span class="n">Objlst</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">DamageSource</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</section>
+<section id="nodesgroup">
+<h2>NodesGroup<a class="headerlink" href="#nodesgroup" title="Link to this heading"></a></h2>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>isDamagedList</p></td>
+<td><p>Returns list of damage condition of each node</p></td>
+</tr>
+<tr class="row-odd"><td><p>DamageSource</p></td>
+<td><p>Returns list of damage source name of each node</p></td>
+</tr>
+<tr class="row-even"><td><p>DamageSourceTag</p></td>
+<td><p>Returns list of damage source tag of each node</p></td>
+</tr>
+<tr class="row-odd"><td><p>DamageSourceDose</p></td>
+<td><p>Returns list of damage source dose of each node</p></td>
+</tr>
+<tr class="row-even"><td><p>DamageSourceType</p></td>
+<td><p>Returns list of damage source type of each node</p></td>
+</tr>
+<tr class="row-odd"><td><p>Radiation_Intensity</p></td>
+<td><p>Returns list of Radiation dose of each node</p></td>
+</tr>
+<tr class="row-even"><td><p>OverPressure_Intensity</p></td>
+<td><p>Returns list of OverPressure dose of each node</p></td>
+</tr>
+<tr class="row-odd"><td><p>Toxic_Intensity</p></td>
+<td><p>Returns list of Toxic dose of each material of each node</p></td>
+</tr>
+<tr class="row-even"><td><p>Radiation_Probit</p></td>
+<td><p>Returns list of probit value corresponding to the Radiation value at each node [Probit(Radiation)]</p></td>
+</tr>
+<tr class="row-odd"><td><p>OverPressure_Probit</p></td>
+<td><p>Returns list of probit value corresponding to the OverPressure value at each node [Probit(OverPressure)]</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<blockquote>
+<div><p>To get list of Damage Source of all nodes that defined with NodesGroup tag 1 :</p>
+</div></blockquote>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opr</span><span class="o">.</span><span class="n">NodesGroup</span><span class="o">.</span><span class="n">ObjManager</span><span class="o">.</span><span class="n">Objlst</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">DamageSource</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LqdSprdGaussianGasDisp Module Verification &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="PhysicalEffect Verification" href="../PhysicalEffectVF.html" />
+    <link rel="prev" title="GasGaussian Module Verification" href="GasGaussian.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingCommands.html">Modeling commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../Verifications.html">Verifications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hazardVF.html">Hazard Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateAndTimeVF.html">DateAndTime Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WindDataVF.html">WindData Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FragilitiesVF.html">Fragilities Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OutflowVF.html">Outflow Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConnectorsVF.html">Connectors Verification</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../DispersionSpreadModelsVF.html">DispersionSpreadModels Verification</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="LiquidSpread.html">LiquidSpread Module Verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BritterMcQuaid.html">BritterMcQuaid Module Verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GasGaussian.html">GasGaussian Module Verification</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">LqdSprdGaussianGasDisp Module Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicalEffectVF.html">PhysicalEffect Verification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../Verifications.html">Verifications</a></li>
+          <li class="breadcrumb-item"><a href="../DispersionSpreadModelsVF.html">DispersionSpreadModels Verification</a></li>
+      <li class="breadcrumb-item active">LqdSprdGaussianGasDisp Module Verification</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/user/Verifications/DispersionSpreadModelsVF/LqdSprdGaussianGasDisp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lqdsprdgaussiangasdisp-module-verification">
+<span id="lqdsprdgaussiangasdispvf"></span><h1>LqdSprdGaussianGasDisp Module Verification<a class="headerlink" href="#lqdsprdgaussiangasdisp-module-verification" title="Link to this heading"></a></h1>
+<p>This module is used  for liquid substances that after outflow their evaporation should be calculated and dispersion of evaporated gas should be considered (to calculate explosive gas). For this purpose, liquid spread was considered as same pool liquid with same parameters, and for gas evaporation rate and dispersion, the gaussian formula has been used. Verification of this model has been done in some steps using existing solved examples or handy calculations (in excel) and comparing with results of the software.</p>
+<p>The below codes can be downloaded from <a class="reference download internal" download="" href="../../../_downloads/58a8b0a6938822ca2a1bf7b2e7524704/LqdSprdGaussianGasDisp.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a> in Jupyter Notebook format. The excel file that independent calculations has been done inside it, can be downloaded from <a class="reference download internal" download="" href="../../../_downloads/733f35335ed85c95f9f482d88c3a1aae/GaussianValidations.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+<p>To validate the module calculations, by the below code the calculated evaporated mass results compared with Casal book example 2.9:</p>
+<div class="admonition-verification admonition">
+<p class="admonition-title">Verification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Verification by casal example 2.9</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+
+<span class="n">SiteTAg</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">Sites</span><span class="o">.</span><span class="n">Site</span><span class="p">(</span><span class="n">SiteTAg</span><span class="p">,</span> <span class="n">Temperature</span><span class="o">=</span><span class="mi">20</span><span class="o">+</span><span class="mi">273</span><span class="p">,</span><span class="n">Pressure</span><span class="o">=</span><span class="mf">1.0132</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span> <span class="p">,</span><span class="n">XSiteBoundary</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">YSiteBoundary</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">],</span> <span class="n">g</span><span class="o">=</span><span class="mf">9.81</span><span class="p">)</span>
+
+
+<span class="c1">#Create Wind Object</span>
+<span class="n">windobj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">WindData</span><span class="o">.</span><span class="n">WindRose</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">WindClass</span><span class="o">=</span><span class="s2">&quot;A&quot;</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">WindDirection</span><span class="o">=</span><span class="mi">90</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">WindSpeed</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">AlphaCOEF</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">windobj</span><span class="o">.</span><span class="n">isCalmn</span><span class="o">=</span><span class="kc">False</span>
+
+
+<span class="c1">#Define Material</span>
+<span class="n">subsObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Substance</span><span class="o">.</span><span class="n">DataBank</span><span class="o">.</span><span class="n">CasCalEx2_1</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">subsObj</span><span class="o">.</span><span class="n">Specific_Heat_of_Vaporization</span><span class="o">=</span><span class="mf">392.23</span><span class="o">*</span><span class="mi">1000</span>
+<span class="n">subsObj</span><span class="o">.</span><span class="n">Vapour_Pressure</span><span class="o">=</span><span class="mi">16130</span>                      <span class="c1">#Accoring Casal Example 2.9</span>
+<span class="n">subsObj</span><span class="o">.</span><span class="n">Molecular_Weight</span><span class="o">=</span><span class="mi">86</span><span class="o">/</span><span class="mi">1000</span>                   <span class="c1">#Accoring Casal Example 2.9</span>
+<span class="n">subsObj</span><span class="o">.</span><span class="n">Boiling_Point</span><span class="o">=</span><span class="mi">273</span><span class="o">+</span><span class="mf">68.7</span>                     <span class="c1">#According Casal Example 2.9</span>
+<span class="n">subsObj</span><span class="o">.</span><span class="n">Liquid_Partial_Pressure_in_Atmosphere</span><span class="o">=</span><span class="mi">0</span>    <span class="c1">#According Casal Example 2.9</span>
+<span class="n">subsObj</span><span class="o">.</span><span class="n">Lower_Flammability_Limit</span><span class="o">=</span><span class="mf">0.03</span>
+<span class="n">subsObj</span><span class="o">.</span><span class="n">Upper_Flammability_Limit</span><span class="o">=</span><span class="mi">3</span>
+
+<span class="c1">#Define Outflow Models</span>
+<span class="n">tag</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">opr</span><span class="o">.</span><span class="n">OutFlowModel</span><span class="o">.</span><span class="n">TankHole</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">Hole_Diameter</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">Hole_Height_FromBot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delta_t</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">Cd</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">opr</span><span class="o">.</span><span class="n">Safety</span><span class="o">.</span><span class="n">Dike</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">Area</span><span class="o">=</span><span class="mf">3.1415</span><span class="o">*</span><span class="mi">11</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">#Define Plant Units</span>
+<span class="n">xc</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">yc</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">D</span><span class="o">=</span><span class="mi">5</span>
+<span class="c1">#OnGroundTag=1</span>
+<span class="n">Uni</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ONGStorage</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">SiteTag</span><span class="o">=</span><span class="n">SiteTAg</span><span class="p">,</span><span class="n">DikeTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                              <span class="n">Horizontal_localPosition</span><span class="o">=</span><span class="n">xc</span><span class="p">,</span><span class="n">Vertical_localPosition</span><span class="o">=</span><span class="n">yc</span><span class="p">,</span>
+                              <span class="n">Pressure</span><span class="o">=</span><span class="mf">1.5</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span> <span class="p">,</span><span class="n">Temperature</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                              <span class="n">Diameter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">Height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                              <span class="n">SubstanceTag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">SubstanceVolumeRatio</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span> <span class="c1">#Define a StorageTank</span>
+
+
+<span class="n">Uni</span><span class="o">.</span><span class="n">isdamaged</span><span class="o">=</span><span class="kc">True</span>
+
+<span class="c1">#These steps will be done Automatically By the Program inside the Analysis Part</span>
+<span class="n">OutFlowObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">OutFlowModel</span><span class="o">.</span><span class="n">ObjManager</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>     <span class="c1"># Get OutFlow Object</span>
+<span class="n">UnitObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">PlantUnits</span><span class="o">.</span><span class="n">ObjManager</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>          <span class="c1"># Get Unit Object</span>
+<span class="n">Subs</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Substance</span><span class="o">.</span><span class="n">ObjManager</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>              <span class="c1"># Get Substance Object</span>
+<span class="n">SiteObj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Sites</span><span class="o">.</span><span class="n">ObjManager</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>               <span class="c1"># Get Site Object</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">=</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">OutFlowObj</span><span class="p">)</span>  <span class="c1">#Assign OutFlow Model to Unit Object</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">.</span><span class="n">UnitObject</span><span class="o">=</span><span class="n">UnitObj</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">OutFlowModelObject</span><span class="o">.</span><span class="n">Calculate</span><span class="p">();</span> <span class="c1">#Calculate OutFlow Calculations to get</span>
+
+
+<span class="c1">#Define Dispesion Spread Models and their connections to the materials and outflows</span>
+<span class="n">DispObject</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">DispersionSpreadModels</span><span class="o">.</span><span class="n">LqdSprdGaussianGasDisp</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">MatTags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">OutFlowModelTags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="c1">#Creat the Dispersion Object</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionSpreadModelObject</span><span class="o">=</span><span class="n">DispObject</span>           <span class="c1">#Assign Dispersion Object to the Unit Object</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionSpreadModelObject</span><span class="o">.</span><span class="n">UnitObject</span><span class="o">=</span><span class="n">UnitObj</span>   <span class="c1">#Assign the UnitObject to the Dispersion Model</span>
+<span class="n">UnitObj</span><span class="o">.</span><span class="n">DispersionSpreadModelname</span><span class="o">=</span><span class="n">DispObject</span><span class="o">.</span><span class="n">name</span>
+
+<span class="c1">#Do Calculations</span>
+<span class="n">DispObject</span><span class="o">.</span><span class="n">Calculate</span><span class="p">();</span>
+<span class="n">poolArea</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">DispObject</span><span class="o">.</span><span class="n">LiquidRadious</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.1415</span>
+<span class="n">V</span><span class="o">=</span><span class="n">Uni</span><span class="o">.</span><span class="n">V_subs</span>
+<span class="n">md</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">DispObject</span><span class="o">.</span><span class="n">LiquidVaporizationMassRate</span><span class="p">)</span>
+<span class="n">E</span><span class="o">=</span><span class="n">md</span><span class="o">/</span><span class="n">poolArea</span>
+<span class="n">h</span><span class="o">=</span><span class="n">V</span><span class="o">/</span><span class="n">poolArea</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The substance Height in Dike=&#39;</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Evaporation of mass per area (E)=&#39;</span><span class="p">,</span><span class="n">E</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Evaporation of mass md=&#39;</span><span class="p">,</span><span class="n">md</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Results are compatible with Casal Example 2.9 that md=0.851&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result of above code has been shown in the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">substance</span> <span class="n">Height</span> <span class="ow">in</span> <span class="n">Dike</span><span class="o">=</span> <span class="mf">0.43906253585224136</span>
+<span class="n">Evaporation</span> <span class="n">of</span> <span class="n">mass</span> <span class="n">per</span> <span class="n">area</span> <span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="o">=</span> <span class="mf">0.002244769333550875</span>
+<span class="n">Evaporation</span> <span class="n">of</span> <span class="n">mass</span> <span class="n">md</span><span class="o">=</span> <span class="mf">0.853285086223359</span>
+<span class="n">Results</span> <span class="n">are</span> <span class="n">compatible</span> <span class="k">with</span> <span class="n">Casal</span> <span class="n">Example</span> <span class="mf">2.9</span> <span class="n">that</span> <span class="n">md</span><span class="o">=</span><span class="mf">0.851</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-verification-part2 admonition">
+<p class="admonition-title">Verification Part2:</p>
+<p>In the following code, cross and longitudinal concentration of gas at specifies locations are checked by independent calculations in Excel. (The code should be run after the prior code in the above):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot cross section of the plume Concentration values and longitudinal Concentration values</span>
+<span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">10</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">110</span><span class="p">)]</span>
+<span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="n">DispObject</span><span class="o">.</span><span class="n">GasConcentration</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Code Results&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Concentration at x=4 and z=0.5&#39;</span><span class="p">)</span>
+
+<span class="n">excelx</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">18</span><span class="p">,</span><span class="o">-</span><span class="mf">17.5</span><span class="p">,</span><span class="o">-</span><span class="mi">17</span><span class="p">,</span><span class="o">-</span><span class="mf">16.5</span><span class="p">,</span><span class="o">-</span><span class="mi">16</span><span class="p">,</span><span class="o">-</span><span class="mf">15.5</span><span class="p">,</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mf">14.5</span><span class="p">,</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mf">13.5</span><span class="p">,</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span><span class="o">-</span><span class="mf">12.5</span><span class="p">,</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="o">-</span><span class="mf">11.5</span><span class="p">,</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span><span class="o">-</span><span class="mf">10.5</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mf">9.5</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mf">8.5</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mf">7.5</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mf">6.5</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mf">5.5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mf">4.5</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mf">3.5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">5.5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">6.5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mf">7.5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">8.5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mf">9.5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.5</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mf">11.5</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mf">12.5</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mf">13.5</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mf">14.5</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mf">15.5</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mf">16.5</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">17.5</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mf">18.5</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mf">19.5</span><span class="p">]</span>
+<span class="n">excelC</span><span class="o">=</span><span class="p">[</span><span class="mf">2.75050362807037E-08</span><span class="p">,</span><span class="mf">5.78984378520003E-08</span><span class="p">,</span><span class="mf">1.193481540838E-07</span><span class="p">,</span><span class="mf">2.40912204831127E-07</span><span class="p">,</span><span class="mf">4.76207393888374E-07</span><span class="p">,</span><span class="mf">9.21780893949689E-07</span><span class="p">,</span><span class="mf">0.000001747243791382</span><span class="p">,</span><span class="mf">3.24319861356762E-06</span><span class="p">,</span><span class="mf">5.89505445753405E-06</span><span class="p">,</span><span class="mf">1.04929193064724E-05</span><span class="p">,</span><span class="mf">1.82893840944468E-05</span><span class="p">,</span><span class="mf">3.12173521940422E-05</span><span class="p">,</span><span class="mf">5.21779825972259E-05</span><span class="p">,</span><span class="mf">0.000085402923762687</span><span class="p">,</span><span class="mf">0.000136883918911059</span><span class="p">,</span><span class="mf">0.000214845547446069</span><span class="p">,</span><span class="mf">0.000330213269180967</span><span class="p">,</span><span class="mf">0.00049700060795634</span><span class="p">,</span><span class="mf">0.000732509995219599</span><span class="p">,</span><span class="mf">0.00105721770152036</span><span class="p">,</span><span class="mf">0.00149420275599164</span><span class="p">,</span><span class="mf">0.00206799210319344</span><span class="p">,</span><span class="mf">0.00280273769730309</span><span class="p">,</span><span class="mf">0.00371972017028715</span><span class="p">,</span><span class="mf">0.00483428578211008</span><span class="p">,</span><span class="mf">0.00615245728422463</span><span class="p">,</span><span class="mf">0.00766759436872633</span><span class="p">,</span><span class="mf">0.00935758731811342</span><span class="p">,</span><span class="mf">0.0111831173664259</span><span class="p">,</span><span class="mf">0.013087482479099</span><span class="p">,</span><span class="mf">0.0149983533024595</span><span class="p">,</span><span class="mf">0.016831595361829</span><span class="p">,</span><span class="mf">0.0184969967501868</span><span class="p">,</span><span class="mf">0.0199054222426646</span><span class="p">,</span><span class="mf">0.0209766341887419</span><span class="p">,</span><span class="mf">0.0216468371878843</span><span class="p">,</span><span class="mf">0.0218749632829608</span><span class="p">,</span><span class="mf">0.0216468371878843</span><span class="p">,</span><span class="mf">0.0209766341887419</span><span class="p">,</span><span class="mf">0.0199054222426646</span><span class="p">,</span><span class="mf">0.0184969967501868</span><span class="p">,</span><span class="mf">0.016831595361829</span><span class="p">,</span><span class="mf">0.0149983533024595</span><span class="p">,</span><span class="mf">0.013087482479099</span><span class="p">,</span><span class="mf">0.0111831173664259</span><span class="p">,</span><span class="mf">0.00935758731811342</span><span class="p">,</span><span class="mf">0.00766759436872633</span><span class="p">,</span><span class="mf">0.00615245728422463</span><span class="p">,</span><span class="mf">0.00483428578211008</span><span class="p">,</span><span class="mf">0.00371972017028715</span><span class="p">,</span><span class="mf">0.00280273769730309</span><span class="p">,</span><span class="mf">0.00206799210319344</span><span class="p">,</span><span class="mf">0.00149420275599164</span><span class="p">,</span><span class="mf">0.00105721770152036</span><span class="p">,</span><span class="mf">0.000732509995219599</span><span class="p">,</span><span class="mf">0.00049700060795634</span><span class="p">,</span><span class="mf">0.000330213269180967</span><span class="p">,</span><span class="mf">0.000214845547446069</span><span class="p">,</span><span class="mf">0.000136883918911059</span><span class="p">,</span><span class="mf">0.000085402923762687</span><span class="p">,</span><span class="mf">5.21779825972259E-05</span><span class="p">,</span><span class="mf">3.12173521940422E-05</span><span class="p">,</span><span class="mf">1.82893840944468E-05</span><span class="p">,</span><span class="mf">1.04929193064724E-05</span><span class="p">,</span><span class="mf">5.89505445753405E-06</span><span class="p">,</span><span class="mf">3.24319861356762E-06</span><span class="p">,</span><span class="mf">0.000001747243791382</span><span class="p">,</span><span class="mf">9.21780893949689E-07</span><span class="p">,</span><span class="mf">4.76207393888374E-07</span><span class="p">,</span><span class="mf">2.40912204831127E-07</span><span class="p">,</span><span class="mf">1.193481540838E-07</span><span class="p">,</span><span class="mf">5.78984378520003E-08</span><span class="p">,</span><span class="mf">2.75050362807037E-08</span><span class="p">,</span><span class="mf">1.27953401015458E-08</span><span class="p">,</span><span class="mf">5.8288876128192E-09</span><span class="p">,</span><span class="mf">2.60024197941628E-09</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">excelx</span><span class="p">,</span><span class="n">excelC</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Excel Results&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">z</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">100</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">170</span><span class="p">)]</span>
+<span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="n">DispObject</span><span class="o">.</span><span class="n">GasConcentration</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+
+
+
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Code Results&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Concentration at y=0 and z=0.5&#39;</span><span class="p">)</span>
+
+<span class="n">excelx</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">0.95</span><span class="p">,</span><span class="o">-</span><span class="mf">0.9</span><span class="p">,</span><span class="o">-</span><span class="mf">0.85</span><span class="p">,</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="o">-</span><span class="mf">0.65</span><span class="p">,</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span><span class="o">-</span><span class="mf">0.55</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mf">0.45</span><span class="p">,</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span><span class="o">-</span><span class="mf">0.35</span><span class="p">,</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.15</span><span class="p">,</span><span class="o">-</span><span class="mf">0.0999999999999997</span><span class="p">,</span><span class="o">-</span><span class="mf">0.0499999999999997</span><span class="p">,</span><span class="mf">3.19189119579733E-16</span><span class="p">,</span><span class="mf">0.0500000000000003</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.35</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.55</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.65</span><span class="p">,</span><span class="mf">0.700000000000001</span><span class="p">,</span><span class="mf">0.750000000000001</span><span class="p">,</span><span class="mf">0.800000000000001</span><span class="p">,</span><span class="mf">0.850000000000001</span><span class="p">,</span><span class="mf">0.900000000000001</span><span class="p">,</span><span class="mf">0.950000000000001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.15</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mf">1.3</span><span class="p">,</span><span class="mf">1.35</span><span class="p">,</span><span class="mf">1.4</span><span class="p">,</span><span class="mf">1.45</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.55</span><span class="p">,</span><span class="mf">1.6</span><span class="p">,</span><span class="mf">1.65</span><span class="p">,</span><span class="mf">1.7</span><span class="p">,</span><span class="mf">1.75</span><span class="p">,</span><span class="mf">1.8</span><span class="p">,</span><span class="mf">1.85</span><span class="p">,</span><span class="mf">1.9</span><span class="p">,</span><span class="mf">1.95</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">2.05</span><span class="p">,</span><span class="mf">2.1</span><span class="p">,</span><span class="mf">2.15</span><span class="p">,</span><span class="mf">2.2</span><span class="p">,</span><span class="mf">2.25</span><span class="p">,</span><span class="mf">2.3</span><span class="p">,</span><span class="mf">2.35</span><span class="p">,</span><span class="mf">2.4</span><span class="p">,</span><span class="mf">2.45</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.55</span><span class="p">,</span><span class="mf">2.6</span><span class="p">,</span><span class="mf">2.65</span><span class="p">,</span><span class="mf">2.7</span><span class="p">,</span><span class="mf">2.75</span><span class="p">]</span>
+<span class="n">excelC</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.162423892233286</span><span class="p">,</span><span class="mf">1.96268547574951</span><span class="p">,</span><span class="mf">2.08831220306757</span><span class="p">,</span><span class="mf">1.68587582341667</span><span class="p">,</span><span class="mf">1.31309998590647</span><span class="p">,</span><span class="mf">1.03310917766095</span><span class="p">,</span><span class="mf">0.828613617339742</span><span class="p">,</span><span class="mf">0.677733807163529</span><span class="p">,</span><span class="mf">0.564234370189099</span><span class="p">,</span><span class="mf">0.477076901346487</span><span class="p">,</span><span class="mf">0.408835884324658</span><span class="p">,</span><span class="mf">0.35445914467813</span><span class="p">,</span><span class="mf">0.310446658467203</span><span class="p">,</span><span class="mf">0.274326546239493</span><span class="p">,</span><span class="mf">0.244320852205319</span><span class="p">,</span><span class="mf">0.219129154922523</span><span class="p">,</span><span class="mf">0.197785279752448</span><span class="p">,</span><span class="mf">0.179560152695431</span><span class="p">,</span><span class="mf">0.163894689817027</span><span class="p">,</span><span class="mf">0.150352919493861</span><span class="p">,</span><span class="mf">0.138589091386733</span><span class="p">,</span><span class="mf">0.128324568560311</span><span class="p">,</span><span class="mf">0.119331557667395</span><span class="p">,</span><span class="mf">0.111421581353949</span><span class="p">,</span><span class="mf">0.104437208531498</span><span class="p">,</span><span class="mf">0.0982460081736155</span><span class="p">,</span><span class="mf">0.0927360202223179</span><span class="p">,</span><span class="mf">0.0878122702114609</span><span class="p">,</span><span class="mf">0.0833940149263856</span><span class="p">,</span><span class="mf">0.0794125140841289</span><span class="p">,</span><span class="mf">0.0758091933134559</span><span class="p">,</span><span class="mf">0.0725341086620575</span><span class="p">,</span><span class="mf">0.0695446511868096</span><span class="p">,</span><span class="mf">0.0668044479339553</span><span class="p">,</span><span class="mf">0.0642824268059441</span><span class="p">,</span><span class="mf">0.0619520200177139</span><span class="p">,</span><span class="mf">0.0597904856694526</span><span class="p">,</span><span class="mf">0.0577783303723033</span><span class="p">,</span><span class="mf">0.0558988184257281</span><span class="p">,</span><span class="mf">0.0541375550848942</span><span class="p">,</span><span class="mf">0.0524821331548172</span><span class="p">,</span><span class="mf">0.0509218336047612</span><span class="p">,</span><span class="mf">0.0494473721664283</span><span class="p">,</span><span class="mf">0.0480506849941132</span><span class="p">,</span><span class="mf">0.0467247474438855</span><span class="p">,</span><span class="mf">0.045463420886149</span><span class="p">,</span><span class="mf">0.0442613232134041</span><span class="p">,</span><span class="mf">0.0431137193534885</span><span class="p">,</span><span class="mf">0.0420164286582596</span><span class="p">,</span><span class="mf">0.0409657465184507</span><span class="p">,</span><span class="mf">0.0399583779666248</span><span class="p">,</span><span class="mf">0.0389913813804806</span><span class="p">,</span><span class="mf">0.038062120696258</span><span class="p">,</span><span class="mf">0.0371682247938889</span><span class="p">,</span><span class="mf">0.0363075529283366</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">excelx</span><span class="p">,</span><span class="n">excelC</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Excel Results&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The results of above code are shown in the following figures.</p>
+<figure class="align-center" id="id1">
+<span id="lqdsprdgaussiangasdispvffig"></span><img alt="../../../_images/cross.png" src="../../../_images/cross.png" />
+<figcaption>
+<p><span class="caption-text">Calculated cross concentration of plume and compare results with independent calculations</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<figure class="align-center" id="id2">
+<img alt="../../../_images/longitudina.png" src="../../../_images/longitudina.png" />
+<figcaption>
+<p><span class="caption-text">Calculated longitudina concentration of plume and compare results with independent calculations</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition-verification-part3 admonition">
+<p class="admonition-title">Verification Part3:</p>
+<p>In this part location of center line of plume is checked again by independent calculations in excel. (The code should be run after the prior code in the above):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Another Example to show the centyer line and dispersed gas and ...</span>
+<span class="c1">#Calculate center line</span>
+
+<span class="n">LFL</span><span class="o">=</span><span class="mf">0.03</span>
+<span class="n">UFL</span><span class="o">=</span><span class="mi">3</span>
+
+<span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">zt</span><span class="p">,</span><span class="n">yl</span><span class="p">,</span><span class="n">xpoints</span><span class="p">,</span><span class="n">ypoints</span><span class="p">,</span><span class="n">zpoints</span><span class="p">,</span><span class="n">Dx</span><span class="p">,</span><span class="n">Dy</span><span class="p">,</span><span class="n">Dz</span><span class="p">,</span><span class="n">Conc</span><span class="o">=</span><span class="n">DispObject</span><span class="o">.</span><span class="n">_GasPoints</span><span class="p">(</span><span class="n">LFL</span><span class="p">,</span><span class="n">UFL</span><span class="p">,</span><span class="n">SegmentNumbers</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">errpercent</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Code Centerline&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Center Line of Concentration plume&#39;</span><span class="p">)</span>
+
+<span class="n">excelX</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.04</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">1.45</span><span class="p">,</span><span class="mf">1.9</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">excelC</span><span class="o">=</span><span class="p">[</span><span class="mf">0.439062536</span><span class="p">,</span><span class="mf">0.439062536</span><span class="p">,</span><span class="mf">0.439062536</span><span class="p">,</span><span class="mf">0.429062536</span><span class="p">,</span><span class="mf">0.429062536</span><span class="p">,</span><span class="mf">0.429062536</span><span class="p">,</span><span class="mf">0.319062536</span><span class="p">,</span><span class="mf">0.009062536</span><span class="p">,</span><span class="mf">0.009062536</span><span class="p">,</span><span class="mf">0.009062536</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">excelX</span><span class="p">,</span><span class="n">excelC</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Excel Centerline&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The results of above code are shown in the following figures.</p>
+<figure class="align-center" id="id3">
+<span id="lqdsprdgaussiangasdispvf2fig"></span><img alt="../../../_images/centerline.png" src="../../../_images/centerline.png" />
+<figcaption>
+<p><span class="caption-text">Center line of plume and compare results with independent calculation</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition-verification-part4 admonition">
+<p class="admonition-title">Verification Part4:</p>
+<p>Also, the module empowered to an algorithm to calculate the mass and its center of the dispersed gas. This algorithm uses the centerline values and for each center line, depend on its deviation in each cross direction, it selects number of points that covers the spaces that have concentration greater than LFL. By this way in a very short time the dispersed gas mass and its center will be calculated. To check the validation on the generated space and calculated mass and center, the following controls has been done using Excel.</p>
+<ul class="simple">
+<li><p>By considering the number of the segments equal to 1000 (a very huge number and 10 is enough and has enough accuracy) the maximum distance from center of the release becomes equal to x=3.47 m . The example LFL is equal to LFL=0.03, so we expect that for any point greater than 3.5m we have no point greater than LFL. To check this condition for x=3.5 and on y=0 we check the all values on the z axis. The results are shown in the following figure. As it can be seen all values on x=3.5 are less than LFL limitation and the maximum point on the ground is equal to LFL that shows we have no volume to be consider in mass calculations.</p></li>
+</ul>
+<figure class="align-center" id="id4">
+<span id="lqdsprdgaussiangasdispvf3fig"></span><img alt="../../../_images/LFL.png" src="../../../_images/LFL.png" />
+<figcaption>
+<p><span class="caption-text">Variation of the Concentration along the height at different distances from source</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul>
+<li><p>For 1000 segments the calculated mass and center of the mass is equal to <span class="math notranslate nohighlight">\(M=0.60 kg\)</span> and Center of the mass is <span class="math notranslate nohighlight">\((x=1.36,y=0,z=0.380)\)</span> and for 10 segments it is equal to <span class="math notranslate nohighlight">\(M=0.656 kg\)</span> and center of the mass is <span class="math notranslate nohighlight">\((x=1.33,y=0,z=0.382)\)</span>.</p></li>
+<li><p>To get ensure that Center of mass and mass are calculated correctly, for calculated points, the concentration are calculated and then center of the mass and mass also are calculated separately using excel and the results checks with code for 10 segments. As it is shown in Table 1 results are fully compatible as expected.</p>
+<blockquote>
+<div><table class="docutils align-center" id="id5">
+<caption><span class="caption-text">Validation on Mass Calculations</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 55.6%" />
+<col style="width: 22.2%" />
+<col style="width: 22.2%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Formula</p></th>
+<th class="head"><p>Module</p></th>
+<th class="head"><p>Excel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="math notranslate nohighlight">
+\[Mass (\Sigma M_i)\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[0.656\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[0.656\]</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="math notranslate nohighlight">
+\[\Sigma M_i\times x_i\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[-\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[0.8737\]</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="math notranslate nohighlight">
+\[\Sigma M_i\times z_i\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[-\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[0.251\]</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="math notranslate nohighlight">
+\[X\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[1.332\]</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><div class="math notranslate nohighlight">
+\[Y\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[0.382\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[0.382\]</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p>Calculated point for 10, 50, 100 and 300 segments, also are shown in the following html figures:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference download internal" download="" href="../../../_downloads/fd739e47944ac4005aa761bb036582b7/10seg.html"><code class="xref download docutils literal notranslate"><span class="pre">10</span> <span class="pre">segments</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../../_downloads/4accbbc9cb57719a24cac0fbf7c370b0/50seg.html"><code class="xref download docutils literal notranslate"><span class="pre">50</span> <span class="pre">segments</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../../_downloads/a9b799090d64aa545a7066a7a1f238f9/100seg.html"><code class="xref download docutils literal notranslate"><span class="pre">100</span> <span class="pre">segments</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../../_downloads/7d5133e970c7ec623d0d8c2f6466d6df/300seg.html"><code class="xref download docutils literal notranslate"><span class="pre">300</span> <span class="pre">segments</span></code></a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<p>Verification by: <strong>Bijan Sayyafzadeh</strong></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
