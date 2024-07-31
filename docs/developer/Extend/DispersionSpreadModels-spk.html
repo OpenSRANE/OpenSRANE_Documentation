@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DispersionSpreadModels Subpackage Structure &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=47de8214"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="BritterMcQuaid Module Structure" href="DispersionSpreadModels-spk/BritterMcQuaid.html" />
+    <link rel="prev" title="Connectors Subpackage Structure" href="Connectors-spk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/ModelingCommands.html">Modeling commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/Verifications.html">Verifications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build.html">Building Application</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../extend.html">Extending Application</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Framework.html">Framework Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hazard-spk.html">Hazard Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DateAndTime-spk.html">DateAndTime Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WindData-spk.html">WindData Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sites-spk.html">Sites Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Substance-spk.html">Substance Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fragilities-spk.html">Fragilities Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OutFlowModel-spk.html">OutFlowModel Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Connectors-spk.html">Connectors Subpackage Structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DispersionSpreadModels Subpackage Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-goal-of-this-subpackage">Main Goal Of this Subpackage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#globalparameters">_GlobalParameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#existing-modules">Existing modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DispersionSpreadModels-spk/BritterMcQuaid.html">BritterMcQuaid Module Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DispersionSpreadModels-spk/GasGaussian.html">GasGaussian Module Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DispersionSpreadModels-spk/LiquidSpread.html">LiquidSpread Module Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DispersionSpreadModels-spk/LqdSprdGaussianGasDisp.html">LqdSprdGaussianGasDisp Module Structure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PhysicalEffect-spk.html">PhysicalEffect Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Safety-spk.html">Safety Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlantUnits-spk.html">PlantUnits Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NodesGroup-spk.html">NodesGroup Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Recorders-spk.html">Recorders Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Analyze-spk.html">Analyze Subpackage Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AddModule.html">How Add New Module (Command)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AddSPK.html">How Add New SubPackage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../extend.html">Extending Application</a></li>
+      <li class="breadcrumb-item active">DispersionSpreadModels Subpackage Structure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/developer/Extend/DispersionSpreadModels-spk.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dispersionspreadmodels-subpackage-structure">
+<span id="dispersionspreadmodelsex"></span><h1>DispersionSpreadModels Subpackage Structure<a class="headerlink" href="#dispersionspreadmodels-subpackage-structure" title="Link to this heading"></a></h1>
+<section id="main-goal-of-this-subpackage">
+<h2>Main Goal Of this Subpackage<a class="headerlink" href="#main-goal-of-this-subpackage" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The main goals of this <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE/tree/main/opensrane/DispersionSpreadModels">subpackage</a> are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Creating the desired Dispersion or Spread model and get the mentioned model parameters from the user.</p></li>
+<li><p>Calculating the dispersion or spread of the substance into the environment and store results in the global parameters to use in other required objects.</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="globalparameters">
+<h2>_GlobalParameters<a class="headerlink" href="#globalparameters" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>In the following tables the existing global parameters and methods in <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE/blob/main/opensrane/DispersionSpreadModels/_GlobalParameters.py">_GlobalParameters.py</a> of this subpackage has been shown:</p>
+<blockquote>
+<div><table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Global parameters</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MatTags</p></td>
+<td><p>List of the tag of materials that the model can be implemented for.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OutFlowModelTags</p></td>
+<td><p>List of the outflow models that the model can be implemented for.</p></td>
+</tr>
+<tr class="row-even"><td><p>t_disp</p></td>
+<td><p>This parameter is for storing and returning the time step values of the substance dispersion.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LiquidRadious</p></td>
+<td><p>This parameter is for storing and returning the dispersed liquid radious at each time step.</p></td>
+</tr>
+<tr class="row-even"><td><p>LiquidCenter</p></td>
+<td><p>This parameter is for storing and returning the dispersed liquid center coordinate at each time step.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LiquidThickness</p></td>
+<td><p>This parameter is for storing and returning the dispersed liquid thickness at each time step.</p></td>
+</tr>
+<tr class="row-even"><td><p>t_dispLiquidVaporization</p></td>
+<td><p>This parameter is for storing and returning the time step values of the liquid vaporization.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LiquidVaporizationMassRate</p></td>
+<td><p>This parameter is for storing and returning the vaporization mass rate of dispersed liquid at each time step.</p></td>
+</tr>
+<tr class="row-even"><td><p>LiquidVaporizationMass</p></td>
+<td><p>This parameter is for storing and returning the total vaporized mass of dispersed liquid at each time step.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GasExplosiveMass</p></td>
+<td><p>This parameter returns the explosive mass of the dispersed gas at each time step.</p></td>
+</tr>
+<tr class="row-even"><td><p>GasExplosiveCenterX</p></td>
+<td><p>This parameter returns the x coordinate of explosive mass center of the dispersed gas at each time step.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GasExplosiveCenterY</p></td>
+<td><p>This parameter returns the y coordinate of explosive mass center of the dispersed gas at each time step.</p></td>
+</tr>
+<tr class="row-even"><td><p>GasExplosiveCenterZ</p></td>
+<td><p>This parameter returns the z coordinate of explosive mass center of the dispersed gas at each time step.</p></td>
+</tr>
+<tr class="row-odd"><td><p>UnitObject</p></td>
+<td><p>This parameter is to store the object of the plant unit that has damaged and the outflow is calculating for it.</p></td>
+</tr>
+<tr class="row-even"><td><p>WindDirection</p></td>
+<td><p>This parameter stores the sampled wind direction from winddata objects for required calculations.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Global methods</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Arguments</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Calculate</p></td>
+<td><p>—</p></td>
+<td><p>By calling this method the calculations for outflow will be done and the results will be store in the above global parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GasConcentration</p></td>
+<td><p>x,y,z</p></td>
+<td><p>This method returns the gas concentration at entered coordinate.</p></td>
+</tr>
+<tr class="row-even"><td><p>GiveBoundary</p></td>
+<td><p>C</p></td>
+<td><p>This method returns the boundary points that have concentration equal to entered C.</p></td>
+</tr>
+<tr class="row-odd"><td><p>wipeAnalysisGlobal</p></td>
+<td><p>—</p></td>
+<td><p>Shows the global parameters that should be initialize and the beginning of each analysis as described <a class="reference internal" href="Framework/GlobalParam.html#frameworkglbp"><span class="std std-ref">here</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="existing-modules">
+<h2>Existing modules<a class="headerlink" href="#existing-modules" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>In the following the existing modules for this <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE/tree/main/opensrane/DispersionSpreadModels">subpackage</a> are described:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DispersionSpreadModels-spk/BritterMcQuaid.html">BritterMcQuaid Module Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DispersionSpreadModels-spk/GasGaussian.html">GasGaussian Module Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DispersionSpreadModels-spk/LiquidSpread.html">LiquidSpread Module Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DispersionSpreadModels-spk/LqdSprdGaussianGasDisp.html">LqdSprdGaussianGasDisp Module Structure</a></li>
+</ul>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
