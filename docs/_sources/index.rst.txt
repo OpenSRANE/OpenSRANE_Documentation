@@ -13,6 +13,8 @@ OpenSRANE documentation
 
 .. admonition:: Latest News
 
+   * New Version Has been released (Version 0.1.4) 11/15/2024
+
    * New update and loading approach (Ordinary approach) and commands are added to :ref:`Objs_recorder_loader <Objsrecorderloader>` subpackage. 4/23/2024
 
    * MergeSavedFiles option added to :ref:`Analyze <Analyze>` subpackage commands. 4/23/2024

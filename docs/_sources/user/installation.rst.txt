@@ -1,8 +1,8 @@
 .. _installation:
 
-************
-Installation
-************
+**********************
+Installation and Token
+**********************
 
 Install Python
 --------------
@@ -43,3 +43,14 @@ Import OpenSRANE
       
       import opensrane as opr
 
+Enter Your Token
+----------------
+   After importing the OpenSRANE, you Token (username and password) should be eneter as shown in the followin:
+   
+   .. code-block:: python
+      
+      opr.Token.userpass('username', 'password')
+      
+   .. note::
+      
+      To take username and password just send a request email to **OpenSRANE@Gmail.com** and your username and password will be sent for you. For any question or problem call Bijan SayyafZadeh: B.Sayyaf@yahoo.com, +989168046144

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+  <title>Installation and Token &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -47,11 +47,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation and Token</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install-python">Install Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-opensrane">Install OpenSRANE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#editor">Editor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#import-opensrane">Import OpenSRANE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enter-your-token">Enter Your Token</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Systemofunits.html">System of units</a></li>
@@ -86,7 +87,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Installation</li>
+      <li class="breadcrumb-item active">Installation and Token</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/user/installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -96,8 +97,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="installation">
-<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+  <section id="installation-and-token">
+<span id="installation"></span><h1>Installation and Token<a class="headerlink" href="#installation-and-token" title="Link to this heading"></a></h1>
 <section id="install-python">
 <h2>Install Python<a class="headerlink" href="#install-python" title="Link to this heading"></a></h2>
 <blockquote>
@@ -133,6 +134,19 @@
 <div><p>By installing the package on the system, users can call it like all the other Python packages or libraries using import command:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
 </pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="enter-your-token">
+<h2>Enter Your Token<a class="headerlink" href="#enter-your-token" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>After importing the OpenSRANE, you Token (username and password) should be eneter as shown in the followin:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opr</span><span class="o">.</span><span class="n">Token</span><span class="o">.</span><span class="n">userpass</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To take username and password just send a request email to <strong>OpenSRANE&#64;Gmail.com</strong> and your username and password will be sent for you. For any question or problem call Bijan SayyafZadeh: <a class="reference external" href="mailto:B&#46;Sayyaf&#37;&#52;&#48;yahoo&#46;com">B<span>&#46;</span>Sayyaf<span>&#64;</span>yahoo<span>&#46;</span>com</a>, +989168046144</p>
 </div>
 </div></blockquote>
 </section>
