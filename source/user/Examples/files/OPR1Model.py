@@ -3,6 +3,9 @@
 
 import opensrane as opr
 
+#Enter Token
+opr.Token.userpass('username', 'password')
+
 #Define Initial Data According data presented in the Article
 
 

@@ -17,7 +17,9 @@ In this example only |opr| package is enough and there is no need to any other P
    .. code-block:: python
       
 	  import opensrane as opr
-	  
+
+      #Enter Token
+      opr.Token.userpass('username', 'password')
 
 
 Initialize the model and define reorder
