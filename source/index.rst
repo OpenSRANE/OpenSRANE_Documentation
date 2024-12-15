@@ -13,7 +13,7 @@ OpenSRANE documentation
 
 .. admonition:: Latest News
 
-   * New Version Has been released (Version 0.1.4) 11/15/2024
+   * New Version Has been released (Version 0.1.4) 11/15/2024 (**ATTENTION**: You should use Python version 3.12.3 for this package and for other versions the released package won't work)
 
    * New update and loading approach (Ordinary approach) and commands are added to :ref:`Objs_recorder_loader <Objsrecorderloader>` subpackage. 4/23/2024
 
