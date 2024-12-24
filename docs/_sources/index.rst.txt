@@ -46,8 +46,6 @@ OpenSRANE documentation
    
 The |doc| for using the software and getting familiar with the framework of the software and the platform (|githubLink|) that the package has been located and presented are described here. This documentation is divided to two parts. In the first part (:ref:`Users Guideline`) the procedure of modelling and usage of the program has been described for users and steps of modelling has been explained. In the second part (:ref:`Developers Guideline`) the |opr| framework is described for developers wishing to create their own applications or extend the existing applications.
 
-**Official Website (Under Construction):** `https://opensrane.qom.ac.ir/ <https://opensrane.qom.ac.ir/>`_
-
 .. _Users Guideline:
 
 .. toctree::

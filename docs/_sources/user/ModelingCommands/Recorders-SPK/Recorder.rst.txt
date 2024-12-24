@@ -24,17 +24,17 @@ Recorder Command
       The **recordfield** existing Flags are as the following table:
 	  
       .. csv-table:: 
-         :header: "Flag", "Needs NodesGroupTag" ,  "Description"
+         :header: "Flag", "Needs NodesGroupTag", "Description" 
          :widths: 10, 10, 40
       
-         'DamageLevel', No, Records the damage level of each plant unit with respect to the tag number (DamageLevel: the level that the plant unit got damage)
-         'NodesGroupIsDamaged', Yes, Records the nodesgroup with tag equal NodesGroupTag is damaged or not (0 for not damaged and 1 for damaged or failed or dead).
-         'FragilityTag', No, Records Fragility tag of each damaged plant unit. Every recorded value is the fragility tag number that cause damage to the corresponding plant unit.
-		 'LOC', No, Records loss of containment value of each plant unit.
-		 'HazardMag', No, Records the sampled hazard magnitude.
-		 'NodesRadiationOverPressure', Yes, "Records NodesGroup Radiation and OverPressure values (To prevent creating huge files, the number are recorded with 4 decimals)."
-		 'NodesRadiationProbit', Yes, Records the NodesGroup Radiation probit value [Probit(Radiation)]
-		 'NodesOverPressureProbit', Yes, Records the NodesGroup OverPressure probit value [Probit(OverPressure)]
+         "DamageLevel", No, "Records the damage level of each plant unit with respect to the tag number (DamageLevel: the level that the plant unit got damage)"
+         "NodesGroupIsDamaged", Yes, "Records the nodesgroup with tag equal NodesGroupTag is damaged or not (0 for not damaged and 1 for damaged or failed or dead)."
+         "FragilityTag", No, "Records Fragility tag of each damaged plant unit. Every recorded value is the fragility tag number that cause damage to the corresponding plant unit."
+         "LOC", No, "Records loss of containment value of each plant unit."
+         "HazardMag", No, "Records the sampled hazard magnitude."
+         "NodesRadiationOverPressure", Yes, "Records NodesGroup Radiation and OverPressure values (To prevent creating huge files, the number are recorded with 4 decimals)."
+         "NodesRadiationProbit", Yes, "Records the NodesGroup Radiation probit value [Probit(Radiation)]"
+         "NodesOverPressureProbit", Yes, "Records the NodesGroup OverPressure probit value [Probit(OverPressure)]"
 	  
 	  
 

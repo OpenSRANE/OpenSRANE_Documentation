@@ -156,7 +156,7 @@ Second Step: Methods
       :header: "Method Name","How to call","Description"
       :widths: 10, 10, 40
    
-      "**LOC_bins_hist_probloc**", "[bins,hist,probloc]= Post_Process_Object.LOC_bins_hist_probloc()", "This method returns 3 lists that are histogram data of the released liquids however they can be calculated from the previous described list. The first list is the bins data that its length should be one value greater than the two other lists. The second list is histogram data that shows the frequency of the bins and the last list is the probability of each bin value."
+      "**LOC_bins_hist_probloc**", "[bins,hist,probloc]= Post_Process_Object.LOC_bins_hist_probloc(nbins=None)", "This method returns 3 lists that are histogram data of the released liquids however they can be calculated from the previous described list. The first list is the bins data that its length should be one value greater than the two other lists. The second list is histogram data that shows the frequency of the bins and the last list is the probability of each bin value. nbins is the number of desired bins (number of equal ranges of LOC values)."
 
 
 * **Total_Number_Of_Scenarios** method
@@ -366,7 +366,7 @@ PostProcess Plots
    
    Using this command the expected loss of containment in each damage level will be plotted.
 
-   .. function:: Post_Process_Object.plot_DamageLevel_ExpectedLoss(yaxistype='log',PlotMode=1)
+   .. function:: Post_Process_Object.plot_DamageLevel_ExpectedLoss(yaxistype='log',PlotMode=1,height=None,width=None)
    
    .. csv-table:: 
       :header: "Argument", "Type", "Description"
@@ -374,6 +374,8 @@ PostProcess Plots
    
       yaxistype, str, "Type of the yaxis ['linear', 'log', 'date', 'category','multicategory']"
       PlotMode, int, "Options between 1,2 and 3 to plot on various editors."
+      height, int, height of plot.
+      width, int, width of plot.
 	  
    .. admonition:: Example:
    
@@ -400,7 +402,7 @@ PostProcess Plots
    
    Using this command each plant unit damage probability in zero level will be plotted.
 
-   .. function:: Post_Process_Object.plot_Unit_ZeroLevel_DamageProb(yaxistype='log',PlotMode=1)
+   .. function:: Post_Process_Object.plot_Unit_ZeroLevel_DamageProb(yaxistype='log',PlotMode=1,height=None,width=None)
    
    .. csv-table:: 
       :header: "Argument", "Type", "Description"
@@ -408,6 +410,8 @@ PostProcess Plots
    
       yaxistype, str, "Type of the yaxis ['linear', 'log', 'date', 'category','multicategory']"
       PlotMode, int, "Options between 1,2 and 3 to plot on various editors."
+      height, int, height of plot.
+      width, int, width of plot.
 	  
    .. admonition:: Example:
    
@@ -433,7 +437,7 @@ PostProcess Plots
    
    Using this command each fragility and probit happening probability will be plotted.
 
-   .. function:: Post_Process_Object.plot_Fragilities_Probits_Probability(yaxistype='log',PlotMode=1)
+   .. function:: Post_Process_Object.plot_Fragilities_Probits_Probability(yaxistype='log',PlotMode=1,height=None,width=None)
    
    .. csv-table:: 
       :header: "Argument", "Type", "Description"
@@ -441,6 +445,8 @@ PostProcess Plots
    
       yaxistype, str, "Type of the yaxis ['linear', 'log', 'date', 'category','multicategory']"
       PlotMode, int, "Options between 1,2 and 3 to plot on various editors."
+      height, int, height of plot.
+      width, int, width of plot.
 	  
    .. admonition:: Example:
    
@@ -466,14 +472,18 @@ PostProcess Plots
    
    Using this command expected total loss of containment will be plotted.
 
-   .. function:: Post_Process_Object.plot_Expected_Total_LOC(yaxistype='log',PlotMode=1)
+   .. function:: Post_Process_Object.plot_Expected_Total_LOC(nbins=None, yaxistype='log', cumulative=True, PlotMode=1,height=None,width=None)
    
    .. csv-table:: 
       :header: "Argument", "Type", "Description"
       :widths: 10, 10, 40
-   
+
+      nbins, int, "Number of equal ranges of LOC values" 
+      cumulative, bool, Does it show cumulative results or not.	  
       yaxistype, str, "Type of the yaxis ['linear', 'log', 'date', 'category','multicategory']"
       PlotMode, int, "Options between 1,2 and 3 to plot on various editors."
+      height, int, height of plot.
+      width, int, width of plot.
 	  
    .. admonition:: Example:
    
@@ -499,7 +509,7 @@ PostProcess Plots
    
    Using this command probability of scenarios will be plotted.
 
-   .. function:: PPost_Process_Object.plot_ScenarioProbability(yaxistype='log',DamageLevel=[],ScenarioList=[],PlotMode=1,)
+   .. function:: PPost_Process_Object.plot_ScenarioProbability(yaxistype='log',DamageLevel=[],ScenarioList=[],PlotMode=1,,height=None,width=None)
    
    .. csv-table:: 
       :header: "Argument", "Type", "Description"
@@ -509,6 +519,8 @@ PostProcess Plots
       PlotMode, int, "Options between 1,2 and 3 to plot on various editors."
 	  DamageLevel, list of int, List of damage level that user want to watch the results
 	  ScenarioList, list of str, List of scenarios that want to be shown in plot. (for Empty it means that plot all scenarios)
+      height, int, height of plot.
+      width, int, width of plot.
 	  
 	  
    .. admonition:: Example:
