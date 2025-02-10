@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>_GlobalParameters &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
@@ -128,14 +128,14 @@
 <p class="admonition-title">Example:</p>
 <p>The <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE/blob/main/opensrane/OutFlowModel/_GlobalParameters.py">_GlobalParameters.py</a> file content of <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE/blob/main/opensrane/OutFlowModel/">OutFlowModel</a> subpackage has been shown as a sample in the following.</p>
 <p><strong>Python Code</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">_GlobalParameters</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">_GlobalParameters</span><span class="p">():</span>
 
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">wipeAnalysis</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">wipeAnalysisGlobal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wipeAnalysisGlobal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">t_release</span><span class="o">=</span><span class="kc">None</span>  <span class="c1">#Time list of outFlow or release</span>
 
@@ -149,12 +149,12 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">UnitObject</span><span class="o">=</span><span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">wipeAnalysis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wipeAnalysis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wipeAnalysisGlobal</span><span class="p">()</span>
         <span class="k">pass</span>
 
 
-    <span class="k">def</span> <span class="nf">Calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">Calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">UnitObject</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">UnitObject</span> <span class="c1">#self.UnitObject is defined in _GlobalParameters</span>
         <span class="k">if</span> <span class="n">UnitObject</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
@@ -173,9 +173,9 @@
 <div><p>In the following code <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE/blob/main/opensrane/OutFlowModel/Liquid10min.py">Liquid10Min</a> class from <a class="reference external" href="https://github.com/OpenSRANE/OpenSRANE/blob/main/opensrane/OutFlowModel/">OutFlowModel</a> subpackage has been shown as a sample.</p>
 </div></blockquote>
 <p><strong>Python Code</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Liquid10min</span><span class="p">(</span><span class="n">_NewClass</span><span class="p">,</span><span class="n">_GlobalParameters</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Liquid10min</span><span class="p">(</span><span class="n">_NewClass</span><span class="p">,</span><span class="n">_GlobalParameters</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">tag</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">tag</span><span class="p">):</span>
 
         <span class="c1">#---- Fix Part for each class __init__ ----</span>
         <span class="n">ObjManager</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span>
@@ -187,11 +187,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Liquid10Min&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wipeAnalysis</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">wipeAnalysis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wipeAnalysis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">wipeAnalysisGlobal</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">Calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">Calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">UnitObject</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">UnitObject</span> <span class="c1">#self.UnitObject has been defined in _GlobalParameters</span>
         <span class="k">if</span> <span class="n">UnitObject</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
