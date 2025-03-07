@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explosion_TNT Command &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=47de8214"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="DateAndTime Subpackage" href="../DateAndTime-spk.html" />
+    <link rel="prev" title="ConstIM Command" href="ConstIM.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users Guideline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation and Token</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Systemofunits.html">System of units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModelingStepsDiagram.html">Modeling Steps</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../ModelingCommands.html">Modeling commands</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../MiscCommands.html">Miscellaneous(Misc) Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tags.html">Tags (Concept)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Objects.html">Objects (Concept)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../hazard-spk.html">Hazard Subpackage</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Earthquake.html">Earthquake Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstIM.html">ConstIM Command</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Explosion_TNT Command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Hazard.Explosion_TNT"><code class="docutils literal notranslate"><span class="pre">Hazard.Explosion_TNT()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../DateAndTime-spk.html">DateAndTime Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WindData-spk.html">WindData Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Sites-spk.html">Sites Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Substance-spk.html">Substance Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Fragilities-spk.html">Fragilities Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OutFlowModel-spk.html">OutFlowModel Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Connectors-spk.html">Connectors Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DispersionSpreadModels-spk.html">DispersionSpreadModels Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicalEffect-spk.html">PhysicalEffect Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Safety-spk.html">Safety Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlantUnits-spk.html">PlantUnits Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Recorders-spk.html">Recorders Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Analyze-spk.html">Analyze Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NodesGroups-spk.html">NodesGroups Subpackage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Plot.html">Plotting tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PostProcessing.html">Post Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Verifications.html">Verifications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guideline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/sourceCode.html">Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/build.html">Building Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/extend.html">Extending Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contribute.html">Contributing Code &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSRANE Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../ModelingCommands.html">Modeling commands</a></li>
+          <li class="breadcrumb-item"><a href="../hazard-spk.html">Hazard Subpackage</a></li>
+      <li class="breadcrumb-item active">Explosion_TNT Command</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/user/ModelingCommands/Hazard-SPK/Explosion_TNT.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="explosion-tnt-command">
+<span id="explosion-tnt"></span><h1>Explosion_TNT Command<a class="headerlink" href="#explosion-tnt-command" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="Hazard.Explosion_TNT">
+<span class="sig-prename descclassname"><span class="pre">Hazard.</span></span><span class="sig-name descname"><span class="pre">Explosion_TNT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TNT_weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&quot;X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z&quot;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CEP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Hazard.Explosion_TNT" title="Link to this definition"></a></dt>
+<dd><p>This command allows the launch of a specified number of missiles with a defined explosive weight towards a target, with their accuracy determined by the Circular Error Probable (CEP).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tag</p></td>
+<td><p>int</p></td>
+<td><p>Unique integer value that will be used for referring to the defined elements or objects.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TNT_weight</p></td>
+<td><p>int</p></td>
+<td><p>Weight of explosive (TNT) in kg.</p></td>
+</tr>
+<tr class="row-even"><td><p>X,Y,Z</p></td>
+<td><p>int</p></td>
+<td><p>Coordinates of the target point.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CEP</p></td>
+<td><p>int</p></td>
+<td><p>Circular Error Probability is the radius of a circle within which 50% of impact points fall. It is a common measure of the accuracy of guided weapon systems.</p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>int</p></td>
+<td><p>Number of missiles.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<p>The following demonstrates the use of the Explosion_TNT command.</p>
+<p><strong>Python Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">opensrane</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">opr</span>
+
+<span class="c1">#Create an Object Hazard with Tag=1 and 3 explosions with 500 kg explosives to the target point at coordinates (x =-50, y =100, z=0) and a CEP of 10.</span>
+<span class="n">hz</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Hazard</span><span class="o">.</span><span class="n">Explosion_TNT</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<p>Code Developed by: Saeedeh Koohestani</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bijan Sayyafzadeh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2431545-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2431545-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
