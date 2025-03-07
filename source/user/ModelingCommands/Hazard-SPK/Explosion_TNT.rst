@@ -17,10 +17,6 @@ Explosion_TNT Command
 	  CEP, int, Circular Error Probability is the radius of a circle within which 50% of impact points fall. It is a common measure of the accuracy of guided weapon systems.
 	  n, int, Number of missiles.
 
-   .. note::
-      
-	  
-
    .. admonition:: Example:
    
       The following demonstrates the use of the Explosion_TNT command.
@@ -35,4 +31,4 @@ Explosion_TNT Command
         hz=opr.Hazard.Explosion_TNT(1, 500, -50,100,0, 10, 3) 
 
 
-Code Developed by: |bsz|
+Code Developed by: Saeedeh Koohestani

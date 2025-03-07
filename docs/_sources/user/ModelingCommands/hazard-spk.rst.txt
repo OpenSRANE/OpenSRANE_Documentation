@@ -12,3 +12,4 @@ In this package the natural hazard intensities and corresponding probability of 
 
    Hazard-SPK/Earthquake
    Hazard-SPK/ConstIM
+   Hazard-SPK/Explosion_TNT
