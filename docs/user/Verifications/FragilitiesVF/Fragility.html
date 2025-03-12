@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fragility Module Verification &mdash; OpenSRANE Documentation 0.0.3 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
@@ -111,10 +111,10 @@
 <div class="admonition-verification1-for-normal-distribution admonition">
 <p class="admonition-title">Verification1 for Normal Distribution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import the software</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">opensrane</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">opr</span>
+<span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
 
 <span class="c1">#Import Matplotlib package for plot purposes</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1">#Verification for normal distribution</span>
 <span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
@@ -150,14 +150,14 @@
 <div class="admonition-verification2-for-lognormal-distribution admonition">
 <p class="admonition-title">Verification2 for LogNormal Distribution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import the software</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">opensrane</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">opr</span>
+<span class="kn">import</span> <span class="nn">opensrane</span> <span class="k">as</span> <span class="nn">opr</span>
 
 <span class="c1">#Import Matplotlib package for plot purposes</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1">#Verification for lognormal distribution</span>
 <span class="n">opr</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">math</span>
 <span class="n">obj</span><span class="o">=</span><span class="n">opr</span><span class="o">.</span><span class="n">Fragilities</span><span class="o">.</span><span class="n">Fragility</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Distribution_Type</span><span class="o">=</span><span class="s1">&#39;lognormal&#39;</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">StdDev</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
 <span class="c1">#Excel results for mean=1.8 and std=0.75</span>
 <span class="n">Excel</span><span class="o">=</span><span class="p">[</span><span class="mf">0.000443368872962805</span><span class="p">,</span><span class="mf">0.00819753592459613</span><span class="p">,</span><span class="mf">0.0314866575293163</span><span class="p">,</span><span class="mf">0.0699982906412703</span><span class="p">,</span><span class="mf">0.119342693644532</span><span class="p">,</span><span class="mf">0.17484684050795</span><span class="p">,</span><span class="mf">0.232802266520937</span><span class="p">,</span><span class="mf">0.290608642066892</span><span class="p">,</span><span class="mf">0.346582538307854</span><span class="p">,</span><span class="mf">0.399715801925924</span><span class="p">,</span><span class="mf">0.449469192643485</span><span class="p">,</span><span class="mf">0.495616760008879</span><span class="p">,</span><span class="mf">0.538134969498259</span><span class="p">,</span><span class="mf">0.577126148320459</span><span class="p">,</span><span class="mf">0.612766708635067</span><span class="p">,</span><span class="mf">0.645272716115421</span><span class="p">,</span><span class="mf">0.67487738964635</span><span class="p">,</span><span class="mf">0.701816715355177</span><span class="p">,</span><span class="mf">0.72632053093662</span><span class="p">,</span><span class="mf">0.748607266593389</span><span class="p">,</span><span class="mf">0.768881105912544</span><span class="p">,</span><span class="mf">0.787330726979907</span><span class="p">,</span><span class="mf">0.804129055749149</span><span class="p">,</span><span class="mf">0.819433649162196</span><span class="p">,</span><span class="mf">0.833387451949063</span><span class="p">,</span><span class="mf">0.846119757123861</span><span class="p">,</span><span class="mf">0.85774725873404</span><span class="p">,</span><span class="mf">0.868375125142364</span><span class="p">,</span><span class="mf">0.878098047981419</span><span class="p">,</span><span class="mf">0.88700123998492</span><span class="p">,</span><span class="mf">0.895161366949546</span><span class="p">,</span><span class="mf">0.902647407020044</span><span class="p">,</span><span class="mf">0.909521435626017</span><span class="p">,</span><span class="mf">0.915839337628887</span><span class="p">,</span><span class="mf">0.921651450179559</span><span class="p">,</span><span class="mf">0.927003140865757</span><span class="p">,</span><span class="mf">0.931935326234779</span><span class="p">,</span><span class="mf">0.936484935912391</span><span class="p">,</span><span class="mf">0.940685327438584</span><span class="p">,</span><span class="mf">0.944566656698678</span><span class="p">,</span><span class="mf">0.948156208506431</span><span class="p">,</span><span class="mf">0.951478691535855</span><span class="p">,</span><span class="mf">0.954556501427705</span><span class="p">,</span><span class="mf">0.957409955532165</span><span class="p">,</span><span class="mf">0.960057502401805</span><span class="p">,</span><span class="mf">0.962515908824167</span><span class="p">,</span><span class="mf">0.96480042688445</span><span class="p">,</span><span class="mf">0.966924943276341</span><span class="p">,</span><span class="mf">0.968902112832907</span><span class="p">,</span><span class="mf">0.970743478028256</span><span class="p">,</span><span class="mf">0.972459576002877</span><span class="p">,</span><span class="mf">0.974060034489253</span><span class="p">,</span><span class="mf">0.975553657857638</span><span class="p">,</span><span class="mf">0.97694850436288</span><span class="p">,</span><span class="mf">0.978251955550021</span><span class="p">,</span><span class="mf">0.979470778667453</span><span class="p">,</span><span class="mf">0.980611182840105</span><span class="p">,</span><span class="mf">0.981678869669968</span><span class="p">,</span><span class="mf">0.98267907885608</span><span class="p">,</span><span class="mf">0.983616629359644</span><span class="p">]</span>
