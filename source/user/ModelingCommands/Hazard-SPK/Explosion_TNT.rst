@@ -14,8 +14,12 @@ Explosion_TNT Command
 	  Tag, int, Unique integer value that will be used for referring to the defined elements or objects.
 	  TNT_weight, int, Weight of explosive (TNT) in kg.
 	  "X,Y,Z", int, Coordinates of the target point.
-	  CEP, int, Circular Error Probability is the radius of a circle within which 50% of impact points fall. It is a common measure of the accuracy of guided weapon systems.
+	  CEP, int, Circular Error Probability is the radius of a circle within which 50% of impact points fall. It is a common measure of the accuracy of guided weapon systems [Ref.1]_.
 	  n, int, Number of missiles.
+
+   .. note::
+      
+	  
 
    .. admonition:: Example:
    
@@ -31,4 +35,5 @@ Explosion_TNT Command
         hz=opr.Hazard.Explosion_TNT(1, 500, -50,100,0, 10, 3) 
 
 
-Code Developed by: Saeedeh Koohestani
+.. [Ref.1] `Morio, J., Pastel, R., & Le Gland, F. (2013). Missile target accuracy estimation with importance splitting. Aerospace Science and Technology, 25(1), 40–44. doi: 10.1016/j.ast.2011.12.006`
+Code Developed by: saeedeh koohestani
